@@ -6,6 +6,7 @@ import Navbar from "./components/navbar/Navbar";
 import Signin from "./components/signin/Signin";
 import Register from "./components/register/Register";
 import Home from "./components/home/Home";
+import Auth from "./components/auth/Auth";
 function App() {
   return (
     <BrowserRouter>
@@ -16,7 +17,7 @@ function App() {
           <Route exact path="/signin" component={Signin} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/dashboard" component={Dashboard} />
-          <PrivateRoute exact path="/auth" Component={() => <h1>In</h1>} />
+          <PrivateRoute exact path="/auth" Component={Auth} />
         </Switch>
       </div>
     </BrowserRouter>
