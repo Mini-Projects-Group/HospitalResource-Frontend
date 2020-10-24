@@ -1,6 +1,28 @@
 .root {
-  background: url("/images/26363.jpg");
-  background-size: 100%;
-  background-repeat: no-repeat;
-  height: 110vh;
+  height: auto;
+  background-color: azure;
+}
+
+.first{
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  max-height: 90vh;
+  width: 100%;
+}
+
+.leftFirst{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding:0px 20px;
+}
+
+.rightFirst{
+  flex:1;
+  display: flex;
+}
+.img{
+height: 700px;
 }

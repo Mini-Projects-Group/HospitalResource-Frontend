@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { login_hospital, signup_hospital } from "../../redux";
 import { useDispatch } from "react-redux";
 
+
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
@@ -27,13 +28,11 @@ const Navbar = () => {
     >
       <header className={styles.nav}>
         <div className={styles.container}>
-          <p className={styles.logo}>HRM</p>
+          <div className={styles.logo}>
+            {/* <img src="/images/logo.svg" className={styles.logoImg}/> */}
+            HRM
+          </div>
           <ul className={`${open ? styles.open : ""} ${styles.navUl}`}>
-            {/* <li className={styles.navLi}>
-              <a href="/" className={styles.navLinks}>
-                Blogs
-              </a>
-            </li> */}
             <li className={styles.navLi}>
               <Link to="/signin" className={styles.navLinks}>
                 Sign in

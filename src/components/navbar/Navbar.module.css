@@ -21,6 +21,7 @@
   position: absolute; */
 }
 
+
 .container {
   width: 100%;
   max-width: 1500px;
@@ -28,11 +29,14 @@
 }
 
 .logo {
-  font-size: 1.5rem;
   padding: 0.4em 0.5em;
   flex: 1;
   font-family: "Georgia_Bold";
 }
+
+/* .logoImg{
+  height: 30px;
+} */
 
 .navUl {
   position: absolute;
