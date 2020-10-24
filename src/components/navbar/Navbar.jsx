@@ -1,9 +1,21 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
+import { useEffect } from "react";
+import { login_hospital, signup_hospital } from "../../redux";
+import { useDispatch } from "react-redux";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(login_hospital("abc@gmail.com", "qwerty"));
+    // dispatch(
+    //   signup_hospital("ABCD", "a@g.com", "qwerty", "Kurla,Mumbai", 88888888)
+    // );
+  });
 
   return (
     <div

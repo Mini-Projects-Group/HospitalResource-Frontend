@@ -1,6 +1,7 @@
 import axios from "axios";
 
-export const base_domain = "";
+export const base_domain =
+  "https://hospital-resource-management.herokuapp.com/";
 
 export const axios_config = (api, paramsOrData, method) => ({
   method,
@@ -24,8 +25,9 @@ export const async_func_data = async (
     }
     const axiosConfig = axios_config(apiUrl, paramsOrData, method);
     const response = await axios(axiosConfig);
+
     return response;
   } catch (error) {
-    return error;
+    return error.response;
   }
 };
