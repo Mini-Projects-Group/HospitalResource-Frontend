@@ -5,7 +5,8 @@ import styles from "./Navbar.module.css";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
- 
+  
+
   return (
     <div
       style={{
