@@ -7,7 +7,8 @@ import {
   REGISTER_FAIL,
   REGISTER_SUCCESS,
 } from "./types";
-import { SET_ERROR } from "../error/types";
+import { CLEAR_ERROR, SET_ERROR } from "../error/types";
+import jwt_decode from "jwt-decode";
 
 export const login_hospital = (email_id, password) => async (
   dispatch,
@@ -32,12 +33,26 @@ export const login_hospital = (email_id, password) => async (
         },
       });
     } else {
+      let decoded = jwt_decode(res?.data?.token);
+      
+      //console.log(decoded);
+      const data={
+        hospital_name:decoded.hospital_name,
+        email_id:decoded.email_id,
+        address:decoded.address,
+        contact_no:decoded.contact_no,
+        hospital_id:decoded.hospital_id
+      }
+
       await dispatch({
         type: LOGIN_SUCCESS,
         payload: {
           token: res?.data?.token,
-          hospitalData: "",
+          hospitalData: data,
         },
+      });
+      await dispatch({
+        type:CLEAR_ERROR
       });
     }
   } catch (error) {

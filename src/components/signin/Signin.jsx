@@ -14,6 +14,10 @@ import {
   Typography,
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import {login_hospital} from "../../redux/hospital/action";
+import { Alert, AlertTitle } from '@material-ui/lab';
+import { BAD_STATUS } from "../../redux/utils/constants";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -36,21 +40,50 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Signin = () => {
+
+  const dispatch = useDispatch();
+
   const [type, setType] = useState(0);
 
   const handleType = (event, newValue) => {
     setType(newValue);
   };
 
+
+  const [email,setEmail]=useState('');
+  const [password,setPassword]=useState('');
+
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+
+    await dispatch(login_hospital(email,password));
+
+  }
+
+  const error = useSelector(state => state.eReducer);
+
   const classes = useStyles();
+
+  console.log(error);
 
   return (
     <div className={styles.root}>
       <div className={styles.header}>
         {/* <Avatar className={classes.avatar}></Avatar> */}
-        <Typography component="h1" variant="h5">
-          Sign in
-        </Typography>
+        <div style={{display:"flex",justifyContent:"center"}}>
+            <Typography component="h1" variant="h5">
+              Sign in
+            </Typography>
+        </div>
+        <div>
+          {
+            error.message && (
+              <Alert severity={error.status === BAD_STATUS  ? "error" :"success"}>
+                  {error.message}
+              </Alert>
+            )
+          }
+        </div>
       </div>
       <div className={styles.main}>
         <Paper square>
@@ -77,6 +110,8 @@ const Signin = () => {
               name="email"
               autoComplete="email"
               autoFocus
+              value={email}
+              onChange={(e)=>setEmail(e.target.value)}
             />
             <TextField
               variant="outlined"
@@ -87,17 +122,19 @@ const Signin = () => {
               type="password"
               id="password"
               autoComplete="current-password"
+              value={password}
+              onChange={(e)=>setPassword(e.target.value)}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
             <Button
-              type="submit"
               fullWidth
               variant="contained"
               color="primary"
               className={classes.submit}
+              onClick={handleSubmit}
             >
               Sign In
             </Button>
