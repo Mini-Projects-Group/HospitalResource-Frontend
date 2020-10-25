@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import { useEffect } from "react";
-import { login_hospital, signup_hospital } from "../../redux";
+import {
+  login_hospital,
+  signup_hospital,
+  signup_seller,
+  login_seller,
+} from "../../redux";
 import { useDispatch } from "react-redux";
 
 const Navbar = () => {
@@ -11,9 +16,16 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(login_hospital("abc@gmail.com", "qwerty"));
+    dispatch(login_seller("abc@g.com", "qwerty123"));
     // dispatch(
-    //   signup_hospital("ABCD", "a@g.com", "qwerty", "Kurla,Mumbai", 88888888)
+    //   signup_seller(
+    //     "My Shop",
+    //     "Abcd",
+    //     "ab@g.com",
+    //     "qwerty",
+    //     "Powai,Mumbai",
+    //     898788888
+    //   )
     // );
   });
 
