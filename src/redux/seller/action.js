@@ -69,6 +69,7 @@ export const signup_seller = (
       "post",
       false
     );
+    console.log(res);
     if (res.status === BAD_STATUS) {
       await dispatch({ type: REGISTER_FAIL });
     } else {

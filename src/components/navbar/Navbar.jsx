@@ -1,11 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
+import { useDispatch } from "react-redux";
+import { login_hospital } from "../../redux/hospital/action";
+import { login_seller } from "../../redux/seller/action";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
-  
+  const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch(login_seller("seller@g.com", "qwerty"));
+  // }, [dispatch]);
 
   return (
     <div
