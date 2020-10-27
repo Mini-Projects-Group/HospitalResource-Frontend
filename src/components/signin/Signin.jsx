@@ -15,9 +15,10 @@ import {
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {login_hospital} from "../../redux/hospital/action";
-import { Alert, AlertTitle } from '@material-ui/lab';
+import { login_hospital } from "../../redux/hospital/action";
+import { Alert, AlertTitle } from "@material-ui/lab";
 import { BAD_STATUS } from "../../redux/utils/constants";
+import { login_seller } from "../../redux";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -40,7 +41,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Signin = () => {
-
   const dispatch = useDispatch();
 
   const [type, setType] = useState(0);
@@ -49,40 +49,35 @@ const Signin = () => {
     setType(newValue);
   };
 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const [email,setEmail]=useState('');
-  const [password,setPassword]=useState('');
-
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await dispatch(login_hospital(email,password));
+    if (type === 0) await dispatch(login_hospital(email, password));
+    else await dispatch(login_seller(email, password));
+  };
 
-  }
-
-  const error = useSelector(state => state.eReducer);
+  const error = useSelector((state) => state.eReducer);
 
   const classes = useStyles();
-
-  console.log(error);
 
   return (
     <div className={styles.root}>
       <div className={styles.header}>
         {/* <Avatar className={classes.avatar}></Avatar> */}
-        <div style={{display:"flex",justifyContent:"center"}}>
-            <Typography component="h1" variant="h5">
-              Sign in
-            </Typography>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <Typography component="h1" variant="h5">
+            Sign in
+          </Typography>
         </div>
         <div>
-          {
-            error.message && (
-              <Alert severity={error.status === BAD_STATUS  ? "error" :"success"}>
-                  {error.message}
-              </Alert>
-            )
-          }
+          {error.message && (
+            <Alert severity={error.status === BAD_STATUS ? "error" : "success"}>
+              {error.message}
+            </Alert>
+          )}
         </div>
       </div>
       <div className={styles.main}>
@@ -111,7 +106,7 @@ const Signin = () => {
               autoComplete="email"
               autoFocus
               value={email}
-              onChange={(e)=>setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <TextField
               variant="outlined"
@@ -123,7 +118,7 @@ const Signin = () => {
               id="password"
               autoComplete="current-password"
               value={password}
-              onChange={(e)=>setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}

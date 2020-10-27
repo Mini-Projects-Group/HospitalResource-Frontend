@@ -34,15 +34,15 @@ export const login_hospital = (email_id, password) => async (
       });
     } else {
       let decoded = jwt_decode(res?.data?.token);
-      
+
       //console.log(decoded);
-      const data={
-        hospital_name:decoded.hospital_name,
-        email_id:decoded.email_id,
-        address:decoded.address,
-        contact_no:decoded.contact_no,
-        hospital_id:decoded.hospital_id
-      }
+      const data = {
+        hospital_name: decoded.hospital_name,
+        email_id: decoded.email_id,
+        address: decoded.address,
+        contact_no: decoded.contact_no,
+        hospital_id: decoded.hospital_id,
+      };
 
       await dispatch({
         type: LOGIN_SUCCESS,
@@ -52,7 +52,7 @@ export const login_hospital = (email_id, password) => async (
         },
       });
       await dispatch({
-        type:CLEAR_ERROR
+        type: CLEAR_ERROR,
       });
     }
   } catch (error) {
@@ -81,6 +81,8 @@ export const signup_hospital = (
       "post",
       false
     );
+
+    console.log(res);
     if (res.status === BAD_STATUS) {
       await dispatch({ type: REGISTER_FAIL });
     } else {
@@ -90,6 +92,10 @@ export const signup_hospital = (
         //     token: res?.data?.token,
         //     hospitalData: "",
         //   },
+      });
+
+      await dispatch({
+        type: CLEAR_ERROR,
       });
     }
     //console.log(res);
