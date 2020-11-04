@@ -7,6 +7,7 @@ import Signin from "./components/signin/Signin";
 import Register from "./components/register/Register";
 import Home from "./components/home/Home";
 import Auth from "./components/auth/Auth";
+import SellerDashboard from "./components/sellerDashboard/SellerDashboard";
 function App() {
   return (
     <BrowserRouter>
@@ -14,6 +15,7 @@ function App() {
         <Navbar />
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/sd" component={SellerDashboard} />
           <Route exact path="/signin" component={Signin} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/dashboard" component={Dashboard} />

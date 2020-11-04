@@ -1,0 +1,62 @@
+@font-face {
+  font-family: ssp;
+  src: url("/fonts/SourceSansPro-Regular.otf");
+  font-display: swap;
+}
+
+.container {
+  display: flex;
+}
+
+.itemName {
+  flex: 2;
+  display: flex;
+  padding: 0.8em 0em;
+  justify-content: center;
+  align-items: center;
+  font-family: ssp;
+}
+.sr {
+  flex: 0.5;
+  display: flex;
+  padding: 0.8em 0em;
+  justify-content: center;
+  align-items: center;
+  font-family: ssp;
+}
+
+.itemId {
+  flex: 1;
+  display: flex;
+  padding: 0.8em 0em;
+  justify-content: center;
+  align-items: center;
+  font-family: ssp;
+}
+
+.quantity {
+  flex: 1;
+  display: flex;
+  padding: 0.8em 0em;
+  justify-content: center;
+  align-items: center;
+  font-family: ssp;
+}
+
+.modifyBtnDiv {
+  flex: 1;
+  display: flex;
+  padding: 0.8em 0em;
+  justify-content: center;
+  align-items: center;
+  font-family: ssp;
+}
+
+.deleteBtnDiv {
+  flex: 1;
+  display: flex;
+  padding: 0.8em 0em;
+  justify-content: center;
+  align-items: center;
+  font-family: ssp;
+}
