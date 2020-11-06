@@ -9,6 +9,7 @@
   src: url("/fonts/SourceSansPro-Bold.otf");
   font-display: swap;
 }
+
 .Modal {
   position: absolute;
   top: 50%;
@@ -52,45 +53,27 @@
 }
 
 .root {
-  padding: 2rem;
-}
-
-.addBtnDiv {
   display: flex;
-  width: 100%;
-  justify-content: flex-end;
-}
-
-.add {
-  height: 75px;
-  width: 75px;
-  border-radius: 50%;
-  background-color: #f6fafb;
-  box-shadow: 0px 2px 7px rgba(94, 144, 156, 0.198);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 0;
-  outline: 0;
-  margin: 25px 0;
-  padding: 25px;
-  cursor: pointer;
-}
-
-.add:hover,
-.add:focus {
-  box-shadow: inset 0px 2px 7px rgba(94, 144, 156, 0.198);
-}
-
-.img {
-  height: 60px;
-  width: 60px;
+  flex-direction: column;
 }
 
 .heading {
-  font-size: 24px;
+  display: flex;
+  align-self: center;
+  justify-content: flex-start;
+  text-align: left;
+  font-size: 18px;
+  font-family: sspbold;
 }
 
-.textOuter {
-  padding: 20px 30px;
+.content {
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+.btnDiv {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
