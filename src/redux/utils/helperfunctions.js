@@ -21,7 +21,8 @@ export const async_func_data = async (
   try {
     if (isTokenRequired) {
       /* Token to RHS to be added */
-      axios.defaults.headers.Authorization = "";
+      axios.defaults.headers.Authorization =
+        "bearer " + localStorage.getItem("token");
     }
     const axiosConfig = axios_config(apiUrl, paramsOrData, method);
     const response = await axios(axiosConfig);
