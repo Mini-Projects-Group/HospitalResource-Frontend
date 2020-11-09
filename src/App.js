@@ -1,12 +1,11 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Dashboard from "./components/dashboard/Dashboard";
-import Navbar from "./components/navbar/Navbar";
-import Signin from "./components/signin/Signin";
-import Register from "./components/register/Register";
 import Home from "./components/home/Home";
-import Auth from "./components/auth/Auth";
+import Navbar from "./components/navbar/Navbar";
+import Register from "./components/register/Register";
 import SellerDashboard from "./components/sellerDashboard/SellerDashboard";
+import Signin from "./components/signin/Signin";
+import PrivateHospitalRoute from "./reusables/routes/PrivateHospitalRoute";
 import PrivateSellerRoute from "./reusables/routes/PrivateSellerRoute";
 function App() {
   return (
@@ -15,11 +14,19 @@ function App() {
         <Navbar />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/sd" component={SellerDashboard} />
           <Route exact path="/signin" component={Signin} />
           <Route exact path="/register" component={Register} />
-          <Route exact path="/dashboard" component={Dashboard} />
-          <PrivateSellerRoute exact path="/auth" Component={Auth} />
+          <PrivateHospitalRoute
+            path="/hospital_dashboard"
+            Component={() => {
+              return <h1>Hospital Private</h1>;
+            }}
+          />
+          <PrivateSellerRoute
+            exact
+            path="/seller_dashboard"
+            Component={SellerDashboard}
+          />
         </Switch>
       </div>
     </BrowserRouter>

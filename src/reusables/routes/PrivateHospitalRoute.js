@@ -1,16 +1,13 @@
 import React from "react";
 import { Redirect, Route } from "react-router-dom";
 
-const PrivateSellerRoute = ({ Component, ...rest }) => {
-  console.log(localStorage.getItem("token"), localStorage.getItem("type"));
-
+const PrivateHospitalRoute = ({ Component, ...rest }) => {
   return (
     <Route
       {...rest}
       render={(props) =>
         localStorage.getItem("token") &&
-        localStorage.getItem("type") &&
-        localStorage.getItem("type") === "seller" ? (
+        localStorage.getItem("type") === "hospital" ? (
           <Component {...props} />
         ) : (
           <Redirect to="/" />
@@ -20,4 +17,4 @@ const PrivateSellerRoute = ({ Component, ...rest }) => {
   );
 };
 
-export default PrivateSellerRoute;
+export default PrivateHospitalRoute;
