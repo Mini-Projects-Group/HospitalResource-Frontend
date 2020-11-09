@@ -37,6 +37,7 @@ export default (state = initialState, action) => {
       };
     case S_LOGIN_SUCCESS:
       localStorage.setItem("token", action.payload.token);
+      localStorage.setItem("type", "seller");
       return {
         ...state,
         isLoading: false,
@@ -53,6 +54,7 @@ export default (state = initialState, action) => {
     case S_LOGOUT_SUCCESS:
     case AUTH_ERROR:
       localStorage.removeItem("token");
+      localStorage.removeItem("type");
       return {
         ...state,
         sellerData: null,
