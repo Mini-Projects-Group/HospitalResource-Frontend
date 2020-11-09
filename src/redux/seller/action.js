@@ -1,10 +1,10 @@
 import { async_func_data } from "../utils/helperfunctions";
 import { BAD_STATUS } from "../utils/constants";
 import {
-  LOGIN_FAIL,
-  LOGIN_SUCCESS,
-  REGISTER_FAIL,
-  REGISTER_SUCCESS,
+  S_LOGIN_FAIL,
+  S_LOGIN_SUCCESS,
+  S_REGISTER_FAIL,
+  S_REGISTER_SUCCESS,
 } from "./types";
 import { SET_ERROR } from "../error/types";
 
@@ -23,7 +23,7 @@ export const login_seller = (email_id, password) => async (
     console.log(res);
 
     if (res.status === BAD_STATUS) {
-      await dispatch({ type: LOGIN_FAIL });
+      await dispatch({ type: S_LOGIN_FAIL });
 
       await dispatch({
         type: SET_ERROR,
@@ -34,7 +34,7 @@ export const login_seller = (email_id, password) => async (
       });
     } else {
       await dispatch({
-        type: LOGIN_SUCCESS,
+        type: S_LOGIN_SUCCESS,
         payload: {
           token: res?.data?.token,
           sellerData: "",
@@ -71,10 +71,10 @@ export const signup_seller = (
     );
     console.log(res);
     if (res.status === BAD_STATUS) {
-      await dispatch({ type: REGISTER_FAIL });
+      await dispatch({ type: S_REGISTER_FAIL });
     } else {
       await dispatch({
-        type: REGISTER_SUCCESS,
+        type: S_REGISTER_SUCCESS,
         //   payload: {
         //     token: res?.data?.token,
         //     hospitalData: "",

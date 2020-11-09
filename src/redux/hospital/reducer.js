@@ -2,11 +2,11 @@ import {
   GENERAL_HOSPITAL_REDUCER,
   HOSPITAL_LOADING,
   HOSPITAL_LOADED,
-  LOGIN_SUCCESS,
-  REGISTER_SUCCESS,
-  LOGIN_FAIL,
-  REGISTER_FAIL,
-  LOGOUT_SUCCESS,
+  H_LOGIN_SUCCESS,
+  H_REGISTER_SUCCESS,
+  H_LOGIN_FAIL,
+  H_REGISTER_FAIL,
+  H_LOGOUT_SUCCESS,
   AUTH_ERROR,
 } from "./types";
 
@@ -35,7 +35,7 @@ export default (state = initialState, action) => {
         isLoading: false,
         hospitalData: action.payload,
       };
-    case LOGIN_SUCCESS:
+    case H_LOGIN_SUCCESS:
       localStorage.setItem("token", action.payload.token);
       localStorage.setItem("type", "hospital");
       return {
@@ -44,14 +44,14 @@ export default (state = initialState, action) => {
         token: action.payload.token,
         hospitalData: action.payload.hospitalData,
       };
-    case REGISTER_SUCCESS:
+    case H_REGISTER_SUCCESS:
       return {
         ...state,
         isLoading: false,
       };
-    case LOGIN_FAIL:
-    case REGISTER_FAIL:
-    case LOGOUT_SUCCESS:
+    case H_LOGIN_FAIL:
+    case H_REGISTER_FAIL:
+    case H_LOGOUT_SUCCESS:
     case AUTH_ERROR:
       localStorage.removeItem("token");
       localStorage.removeItem("type");

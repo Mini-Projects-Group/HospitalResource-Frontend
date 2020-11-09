@@ -10,21 +10,21 @@ import PrivateSellerRoute from "./reusables/routes/PrivateSellerRoute";
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
+      <div className='App'>
         <Navbar />
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/signin" component={Signin} />
-          <Route exact path="/register" component={Register} />
+          <Route exact path='/' component={Home} />
+          <Route exact path='/signin' component={Signin} />
+          <Route exact path='/register' component={Register} />
           <PrivateHospitalRoute
-            path="/hospital_dashboard"
+            path='/hospital_dashboard'
             Component={() => {
               return <h1>Hospital Private</h1>;
             }}
           />
           <PrivateSellerRoute
             exact
-            path="/seller_dashboard"
+            path='/seller_dashboard'
             Component={SellerDashboard}
           />
         </Switch>

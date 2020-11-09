@@ -2,10 +2,10 @@ import { Dispatch } from "redux";
 import { async_func_data } from "../utils/helperfunctions";
 import { BAD_STATUS } from "../utils/constants";
 import {
-  LOGIN_FAIL,
-  LOGIN_SUCCESS,
-  REGISTER_FAIL,
-  REGISTER_SUCCESS,
+  H_LOGIN_FAIL,
+  H_LOGIN_SUCCESS,
+  H_REGISTER_FAIL,
+  H_REGISTER_SUCCESS,
 } from "./types";
 import { CLEAR_ERROR, SET_ERROR } from "../error/types";
 import jwt_decode from "jwt-decode";
@@ -23,7 +23,7 @@ export const login_hospital = (email_id, password) => async (
     );
 
     if (res.status === BAD_STATUS) {
-      await dispatch({ type: LOGIN_FAIL });
+      await dispatch({ type: H_LOGIN_FAIL });
 
       await dispatch({
         type: SET_ERROR,
@@ -45,7 +45,7 @@ export const login_hospital = (email_id, password) => async (
       };
 
       await dispatch({
-        type: LOGIN_SUCCESS,
+        type: H_LOGIN_SUCCESS,
         payload: {
           token: res?.data?.token,
           hospitalData: data,
@@ -84,10 +84,10 @@ export const signup_hospital = (
 
     console.log(res);
     if (res.status === BAD_STATUS) {
-      await dispatch({ type: REGISTER_FAIL });
+      await dispatch({ type: H_REGISTER_FAIL });
     } else {
       await dispatch({
-        type: REGISTER_SUCCESS,
+        type: H_REGISTER_SUCCESS,
         //   payload: {
         //     token: res?.data?.token,
         //     hospitalData: "",
