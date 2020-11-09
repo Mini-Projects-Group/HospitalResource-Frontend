@@ -38,6 +38,11 @@ const Navbar = () => {
                 Get Started
               </Link>
             </li>
+            <li className={styles.navLi}>
+              <Link to="/seller_dashboard" className={styles.navLinks}>
+                SB
+              </Link>
+            </li>
           </ul>
           <div
             className={styles.hamContainer}

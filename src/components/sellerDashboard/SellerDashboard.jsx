@@ -23,15 +23,34 @@ const SellerDashboard = () => {
   useEffect(() => {
     async function f() {
       const result = await async_func_data(
-        `/api/item/allItem/${seller_id}`,
+        `api/item/allItems/${seller_id}`,
         null,
         "get",
         true
       );
-      console.log(result);
+      setItems(result.data);
+      console.log(result.data);
     }
     f();
-  }, [items]);
+  }, [items.length]);
+
+  const [itemName, setItemName] = useState("");
+  const [totalQuantity, setTotalQuantity] = useState(null);
+  const [unitPrice, setUnitPrice] = useState(null);
+
+  const add = async () => {
+    const result = await async_func_data(
+      "api/item/add",
+      {
+        item_name: itemName,
+        quantity: parseInt(totalQuantity),
+        unit_price: parseInt(unitPrice),
+      },
+      "post",
+      true
+    );
+    console.log(result);
+  };
 
   return (
     <div className={styles.root}>
@@ -51,6 +70,8 @@ const SellerDashboard = () => {
               id="outlined-basic"
               label="Item Name"
               variant="outlined"
+              value={itemName}
+              onChange={(e) => setItemName(e.target.value)}
             />
           </div>
           <div className={styles.textOuter}>
@@ -58,6 +79,8 @@ const SellerDashboard = () => {
               id="outlined-basic"
               label="Total Quantity"
               variant="outlined"
+              value={totalQuantity}
+              onChange={(e) => setTotalQuantity(e.target.value)}
             />
           </div>
           <div className={styles.textOuter}>
@@ -65,10 +88,12 @@ const SellerDashboard = () => {
               id="outlined-basic"
               label="Unit Price"
               variant="outlined"
+              value={unitPrice}
+              onChange={(e) => setUnitPrice(e.target.value)}
             />
           </div>
           <div>
-            <Button variant="contained" color="primary">
+            <Button variant="contained" color="primary" onClick={add}>
               Add Item
             </Button>
           </div>
@@ -86,16 +111,17 @@ const SellerDashboard = () => {
             sub_header1="Modify Quantity"
             sub_header2="Delete Item"
           />
-          {items.map((item, index) => {
-            return (
-              <SellerDashboardRow
-                index={index}
-                item_id={item.item_id}
-                item_name={item.item_name}
-                quantity={item.quantity}
-              />
-            );
-          })}
+          {items &&
+            items?.map((item, index) => {
+              return (
+                <SellerDashboardRow
+                  index={index}
+                  item_id={item.item_id}
+                  item_name={item.item_name}
+                  quantity={item.quantity}
+                />
+              );
+            })}
         </div>
       )}
     </div>
