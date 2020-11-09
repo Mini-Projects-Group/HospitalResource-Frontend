@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Dashboard from "./components/dashboard/Dashboard";
-import PrivateRoute from "./reusables/routes/PrivateRoute";
 import Navbar from "./components/navbar/Navbar";
 import Signin from "./components/signin/Signin";
 import Register from "./components/register/Register";
 import Home from "./components/home/Home";
 import Auth from "./components/auth/Auth";
 import SellerDashboard from "./components/sellerDashboard/SellerDashboard";
+import PrivateSellerRoute from "./reusables/routes/PrivateSellerRoute";
 function App() {
   return (
     <BrowserRouter>
@@ -19,7 +19,7 @@ function App() {
           <Route exact path="/signin" component={Signin} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/dashboard" component={Dashboard} />
-          <PrivateRoute exact path="/auth" Component={Auth} />
+          <PrivateSellerRoute exact path="/auth" Component={Auth} />
         </Switch>
       </div>
     </BrowserRouter>
