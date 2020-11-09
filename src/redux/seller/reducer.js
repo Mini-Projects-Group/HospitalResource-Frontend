@@ -33,7 +33,8 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        sellerData: action.payload,
+        sellerData: action.payload.sellerData,
+        token: action.payload.token,
       };
     case S_LOGIN_SUCCESS:
       localStorage.setItem("token", action.payload.token);

@@ -13,7 +13,7 @@ import {
   Avatar,
   Typography,
 } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login_hospital } from "../../redux/hospital/action";
 import { Alert, AlertTitle } from "@material-ui/lab";
@@ -51,17 +51,20 @@ const Signin = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const error = useSelector((state) => state.eReducer);
+  const [route, setRoute] = useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (type === 0) await dispatch(login_hospital(email, password));
     else await dispatch(login_seller(email, password));
+
+    if (error.status !== BAD_STATUS) setRoute(true);
   };
 
-  const error = useSelector((state) => state.eReducer);
-
   const classes = useStyles();
+
+  if (route) return <Redirect to="/auth" />;
 
   return (
     <div className={styles.root}>

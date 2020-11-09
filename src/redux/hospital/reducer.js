@@ -33,7 +33,8 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        hospitalData: action.payload,
+        hospitalData: action.payload.hospitalData,
+        token: action.payload.token,
       };
     case H_LOGIN_SUCCESS:
       localStorage.setItem("token", action.payload.token);
