@@ -2,11 +2,11 @@ import {
   GENERAL_SELLER_REDUCER,
   SELLER_LOADING,
   SELLER_LOADED,
-  LOGIN_SUCCESS,
-  REGISTER_SUCCESS,
-  LOGIN_FAIL,
-  REGISTER_FAIL,
-  LOGOUT_SUCCESS,
+  S_LOGIN_SUCCESS,
+  S_REGISTER_SUCCESS,
+  S_LOGIN_FAIL,
+  S_REGISTER_FAIL,
+  S_LOGOUT_SUCCESS,
   AUTH_ERROR,
 } from "./types";
 
@@ -35,7 +35,7 @@ export default (state = initialState, action) => {
         isLoading: false,
         sellerData: action.payload,
       };
-    case LOGIN_SUCCESS:
+    case S_LOGIN_SUCCESS:
       localStorage.setItem("token", action.payload.token);
       return {
         ...state,
@@ -43,14 +43,14 @@ export default (state = initialState, action) => {
         token: action.payload.token,
         sellerData: action.payload.sellerData,
       };
-    case REGISTER_SUCCESS:
+    case S_REGISTER_SUCCESS:
       return {
         ...state,
         isLoading: false,
       };
-    case LOGIN_FAIL:
-    case REGISTER_FAIL:
-    case LOGOUT_SUCCESS:
+    case S_LOGIN_FAIL:
+    case S_REGISTER_FAIL:
+    case S_LOGOUT_SUCCESS:
     case AUTH_ERROR:
       localStorage.removeItem("token");
       return {

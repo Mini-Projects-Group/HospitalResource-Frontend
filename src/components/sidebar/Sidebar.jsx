@@ -5,7 +5,6 @@ import { BiLogOutCircle } from "react-icons/bi";
 import { BsListOl } from "react-icons/bs";
 import { useLocation, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { LOGOUT_SUCCESS } from "../../redux";
 
 const Sidebar = () => {
   const selectedStyle = {
@@ -23,9 +22,7 @@ const Sidebar = () => {
 
   const dispatch = useDispatch();
 
-  const handleLogout = () => {
-    dispatch({ type: LOGOUT_SUCCESS });
-  };
+  const handleLogout = () => {};
 
   myL.current = useLocation().pathname;
 
