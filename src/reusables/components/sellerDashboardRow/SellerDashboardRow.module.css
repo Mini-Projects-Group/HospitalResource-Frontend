@@ -3,6 +3,52 @@
   src: url("/fonts/SourceSansPro-Regular.otf");
   font-display: swap;
 }
+@font-face {
+  font-family: sspbold;
+  src: url("/fonts/SourceSansPro-Bold.otf");
+  font-display: swap;
+}
+.Modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  border: none;
+  z-index: 999;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  min-width: 300px;
+  max-width: 350px;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.219);
+}
+
+.Modal:focus {
+  outline: 0;
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  -webkit-backdrop-filter: blur(2.3px);
+  backdrop-filter: blur(2.3px);
+  background-color: #7070702a;
+  z-index: 999;
+}
+
+@supports not (backdrop-filter: none) {
+  .Overlay {
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
 
 .container {
   display: flex;

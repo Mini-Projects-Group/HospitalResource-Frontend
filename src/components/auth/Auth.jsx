@@ -3,6 +3,7 @@ import jwt_decode from "jwt-decode";
 import { useDispatch } from "react-redux";
 import { SELLER_LOADED } from "../../redux/seller/types";
 import { HOSPITAL_LOADED } from "../../redux/hospital/types";
+import { Link } from "react-router-dom";
 
 const Auth = () => {
   const token = localStorage.getItem("token");
@@ -51,7 +52,12 @@ const Auth = () => {
 
   if (type === "hospital") return <div>Hospital</div>;
   else {
-    return <div>Seller</div>;
+    return (
+      <div>
+        Seller
+        <Link to="/seller_dashboard">Seller Dashboard</Link>
+      </div>
+    );
   }
 };
 
