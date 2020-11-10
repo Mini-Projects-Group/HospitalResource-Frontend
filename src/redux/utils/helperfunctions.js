@@ -6,7 +6,7 @@ export const base_domain =
 export const axios_config = (api, paramsOrData, method) => ({
   method,
   url: base_domain + api,
-  [method === "post" ? "data" : "params"]: paramsOrData,
+  [method === "post" || "delete" ? "data" : "params"]: paramsOrData,
   headers: {
     "Content-Type": "application/json",
   },

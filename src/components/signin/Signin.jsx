@@ -56,10 +56,13 @@ const Signin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (type === 0) await dispatch(login_hospital(email, password));
-    else await dispatch(login_seller(email, password));
-
-    if (error.status !== BAD_STATUS) setRoute(true);
+    if (type === 0) {
+      await dispatch(login_hospital(email, password));
+      if (error.status !== BAD_STATUS) setRoute(true);
+    } else {
+      await dispatch(login_seller(email, password));
+      if (error.status !== BAD_STATUS) setRoute(true);
+    }
   };
 
   const classes = useStyles();
