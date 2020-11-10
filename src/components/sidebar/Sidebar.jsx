@@ -17,6 +17,11 @@ const Sidebar = () => {
     },
   };
 
+  const urlPrefix =
+    localStorage.getItem("type") === "seller"
+      ? "auth/seller_"
+      : "auth/hospital_";
+
   const myL = useRef("/dashboard");
   const selected = useRef(0);
 
@@ -27,19 +32,19 @@ const Sidebar = () => {
   myL.current = useLocation().pathname;
 
   switch (myL.current) {
-    case "/dashboard":
+    case `${urlPrefix}dashboard`:
       selected.current = 0;
       break;
 
-    case "/orders":
+    case `${urlPrefix}/orders`:
       selected.current = 1;
       break;
 
-    case "/algorithm":
+    case `${urlPrefix}/algorithm`:
       selected.current = 3;
       break;
 
-    case "/logout":
+    case `${urlPrefix}/logout`:
       selected.current = 4;
       break;
 
@@ -50,7 +55,7 @@ const Sidebar = () => {
   return (
     <div className={styles.root}>
       <Link
-        to='/dashboard'
+        to={`${urlPrefix}dashboard`}
         className={styles.main}
         style={selected.current === 0 ? selectedStyle.main : null}
       >

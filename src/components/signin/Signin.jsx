@@ -67,14 +67,14 @@ const Signin = () => {
 
   const classes = useStyles();
 
-  if (route) return <Redirect to="/auth" />;
+  if (route) return <Redirect to='/auth' />;
 
   return (
     <div className={styles.root}>
       <div className={styles.header}>
         {/* <Avatar className={classes.avatar}></Avatar> */}
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <Typography component="h1" variant="h5">
+          <Typography component='h1' variant='h5'>
             Sign in
           </Typography>
         </div>
@@ -90,63 +90,63 @@ const Signin = () => {
         <Paper square>
           <Tabs
             value={type}
-            indicatorColor="primary"
-            textColor="primary"
+            indicatorColor='primary'
+            textColor='primary'
             onChange={handleType}
-            variant="fullWidth"
+            variant='fullWidth'
             //aria-label="disabled tabs example"
           >
-            <Tab label="Hospital" />
-            <Tab label="Distributor" />
+            <Tab label='Hospital' />
+            <Tab label='Distributor' />
           </Tabs>
         </Paper>
         <Paper className={styles.mainPaper}>
           <form noValidate className={classes.form}>
             <TextField
-              variant="outlined"
-              margin="normal"
+              variant='outlined'
+              margin='normal'
               fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
+              id='email'
+              label='Email Address'
+              name='email'
+              autoComplete='email'
               autoFocus
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
             <TextField
-              variant="outlined"
-              margin="normal"
+              variant='outlined'
+              margin='normal'
               fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
+              name='password'
+              label='Password'
+              type='password'
+              id='password'
+              autoComplete='current-password'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
             <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
+              control={<Checkbox value='remember' color='primary' />}
+              label='Remember me'
             />
             <Button
               fullWidth
-              variant="contained"
-              color="primary"
+              variant='contained'
+              color='primary'
               className={classes.submit}
               onClick={handleSubmit}
             >
               Sign In
             </Button>
-            <Grid container justify="center">
+            <Grid container justify='center'>
               {/* <Grid item xs>
                 <Link href="#" variant="body2">
                   Forgot password?
                 </Link>
               </Grid> */}
               <Grid item>
-                <Link to="/register">Don't have an account ? Sign Up Now</Link>
+                <Link to='/register'>Don't have an account ? Sign Up Now</Link>
               </Grid>
             </Grid>
           </form>

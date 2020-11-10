@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import { SELLER_LOADED } from "../../redux/seller/types";
 import { HOSPITAL_LOADED } from "../../redux/hospital/types";
 import { Link } from "react-router-dom";
+import Sodebar from "../sidebar/Sidebar";
+import Sidebar from "../sidebar/Sidebar";
 
 const Auth = () => {
   const token = localStorage.getItem("token");
@@ -48,17 +50,21 @@ const Auth = () => {
       }
     }
     f();
-  }, []);
+  }, [dispatch, token, type]);
 
-  if (type === "hospital") return <div>Hospital</div>;
-  else {
+  if (type === "hospital")
+    return (
+      <div>
+        <Sidebar />
+      </div>
+    );
+  else
     return (
       <div>
         Seller
-        <Link to="/seller_dashboard">Seller Dashboard</Link>
+        <Link to='/seller_dashboard'>Seller Dashboard</Link>
       </div>
     );
-  }
 };
 
 export default Auth;

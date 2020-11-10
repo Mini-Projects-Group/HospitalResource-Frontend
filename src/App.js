@@ -9,12 +9,14 @@ import Signin from "./components/signin/Signin";
 import PrivateHospitalRoute from "./reusables/routes/PrivateHospitalRoute";
 import PrivateRoute from "./reusables/routes/PrivateRoute";
 import PrivateSellerRoute from "./reusables/routes/PrivateSellerRoute";
+import SellerCard from "./reusables/components/card/SellerCard";
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
+      <div className='App'>
         <Navbar />
-        <Switch>
+        <SellerCard />
+        {/* <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/signin" component={Signin} />
           <Route exact path="/register" component={Register} />
@@ -30,7 +32,7 @@ function App() {
             Component={SellerDashboard}
           />
           <PrivateRoute exact path="/auth" Component={Auth} />
-        </Switch>
+        </Switch> */}
       </div>
     </BrowserRouter>
   );
