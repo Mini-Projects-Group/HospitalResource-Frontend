@@ -15,24 +15,26 @@ function App() {
     <BrowserRouter>
       <div className='App'>
         <Navbar />
-        <SellerCard />
-        {/* <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/signin" component={Signin} />
-          <Route exact path="/register" component={Register} />
+        {/* <SellerCard /> */}
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/signin' component={Signin} />
+          <Route exact path='/register' component={Register} />
+
+          <PrivateRoute exact path='/auth' Component={Auth} />
           <PrivateHospitalRoute
-            path="/hospital_dashboard"
+            exact
+            path='/auth/hospital_dashboard'
             Component={() => {
               return <h1>Hospital Private</h1>;
             }}
           />
           <PrivateSellerRoute
             exact
-            path="/seller_dashboard"
+            path='/auth/seller_dashboard'
             Component={SellerDashboard}
           />
-          <PrivateRoute exact path="/auth" Component={Auth} />
-        </Switch> */}
+        </Switch>
       </div>
     </BrowserRouter>
   );

@@ -3,9 +3,13 @@ import jwt_decode from "jwt-decode";
 import { useDispatch } from "react-redux";
 import { SELLER_LOADED } from "../../redux/seller/types";
 import { HOSPITAL_LOADED } from "../../redux/hospital/types";
-import { Link } from "react-router-dom";
-import Sodebar from "../sidebar/Sidebar";
+import { Link, Route, Switch } from "react-router-dom";
+
 import Sidebar from "../sidebar/Sidebar";
+import HospitalDashboard from "../hospitalDashboard/HospitalDashboard";
+import Orders from "../orders/Orders";
+import StockAvailable from "../stock/StockAvailable";
+import SellerCard from "../../reusables/components/card/SellerCard";
 
 const Auth = () => {
   const token = localStorage.getItem("token");
@@ -54,14 +58,31 @@ const Auth = () => {
 
   if (type === "hospital")
     return (
-      <div>
-        <Sidebar />
+      <div style={{ background: "green", height: "80vh" }}>
+        <div>
+          {console.log("near sidebar")}
+          <Sidebar />
+        </div>
+        <Switch>
+          <Route
+            exact
+            path='/auth/hospital_dashboard'
+            component={HospitalDashboard}
+          />
+          <Route exact path='/auth/hospital_orders' component={Orders} />
+          <Route exact path='/auth/hospital_stock' component={StockAvailable} />
+          <Route
+            exact
+            path='/auth/hospital_placeorder'
+            component={SellerCard}
+          />
+        </Switch>
       </div>
     );
   else
     return (
       <div>
-        Seller
+        <Sidebar />
         <Link to='/seller_dashboard'>Seller Dashboard</Link>
       </div>
     );
