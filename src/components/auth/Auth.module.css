@@ -1,0 +1,18 @@
+.root {
+  /* position: relative; */
+  display: flex;
+  width: 100%;
+}
+
+.sidebar {
+  /* position: absolute;
+  top: 0;
+  left: 0; */
+}
+
+.main {
+  flex: 1;
+  /* position: absolute;
+  top: 0;
+  left: 110px; */
+}

@@ -10,7 +10,7 @@ const PrivateHospitalRoute = ({ Component, ...rest }) => {
         localStorage.getItem("type") === "hospital" ? (
           <Component {...props} />
         ) : (
-          <Redirect to="/" />
+          <Redirect to='/auth' />
         )
       }
     />
