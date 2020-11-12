@@ -11,6 +11,9 @@ import Orders from "../orders/Orders";
 import StockAvailable from "../stock/StockAvailable";
 import SellerCard from "../../reusables/components/card/SellerCard";
 
+import styles from "./Auth.module.css";
+import SellerDashboard from "../sellerDashboard/SellerDashboard";
+
 const Auth = () => {
   const token = localStorage.getItem("token");
   const type = localStorage.getItem("type");
@@ -58,34 +61,90 @@ const Auth = () => {
 
   if (type === "hospital")
     return (
-      <div style={{ background: "green", height: "80vh" }}>
-        <div>
-          {console.log("near sidebar")}
+      <div className={styles.root}>
+        <div className={styles.sidebar}>
           <Sidebar />
         </div>
-        <Switch>
-          <Route
-            exact
-            path='/auth/hospital_dashboard'
-            component={HospitalDashboard}
-          />
-          <Route exact path='/auth/hospital_orders' component={Orders} />
-          <Route exact path='/auth/hospital_stock' component={StockAvailable} />
-          <Route
-            exact
-            path='/auth/hospital_placeorder'
-            component={SellerCard}
-          />
-        </Switch>
+        <div className={styles.main}>
+          <Switch>
+            <Route
+              exact
+              path='/auth/hospital_dashboard'
+              component={HospitalDashboard}
+            />
+            <Route exact path='/auth/hospital_orders' component={Orders} />
+            <Route
+              exact
+              path='/auth/hospital_stock'
+              component={StockAvailable}
+            />
+            <Route
+              exact
+              path='/auth/hospital_placeorder'
+              component={SellerCard}
+            />
+          </Switch>
+        </div>
       </div>
     );
   else
     return (
-      <div>
-        <Sidebar />
-        <Link to='/seller_dashboard'>Seller Dashboard</Link>
+      <div className={styles.root}>
+        <div className={styles.sidebar}>
+          <Sidebar />
+        </div>
+        <div className={styles.main}>
+          <Switch>
+            <Route
+              exact
+              path='/auth/seller_dashboard'
+              component={SellerDashboard}
+            />
+            <Route exact path='/auth/seller_orders' component={Orders} />
+            <Route exact path='/auth/seller_stock' component={StockAvailable} />
+          </Switch>
+        </div>
       </div>
     );
 };
+
+export const Auth_Seller = () => (
+  <div className={styles.root}>
+    <div className={styles.sidebar}>
+      <Sidebar />
+    </div>
+    <div className={styles.main}>
+      <Switch>
+        <Route
+          exact
+          path='/auth/seller_dashboard'
+          component={SellerDashboard}
+        />
+        <Route exact path='/auth/seller_orders' component={Orders} />
+        <Route exact path='/auth/seller_stock' component={StockAvailable} />
+      </Switch>
+    </div>
+  </div>
+);
+
+export const Auth_Hospital = () => (
+  <div className={styles.root}>
+    <div className={styles.sidebar}>
+      <Sidebar />
+    </div>
+    <div className={styles.main}>
+      <Switch>
+        <Route
+          exact
+          path='/auth/hospital_dashboard'
+          component={HospitalDashboard}
+        />
+        <Route exact path='/auth/hospital_orders' component={Orders} />
+        <Route exact path='/auth/hospital_stock' component={StockAvailable} />
+        <Route exact path='/auth/hospital_placeorder' component={SellerCard} />
+      </Switch>
+    </div>
+  </div>
+);
 
 export default Auth;

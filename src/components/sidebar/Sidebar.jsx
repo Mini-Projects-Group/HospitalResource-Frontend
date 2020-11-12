@@ -121,6 +121,12 @@ const Sidebar = () => {
           style={selected.current === 2 ? selectedStyle.textColor : null}
         >
           <BsListOl size={35} />
+          {/* <img
+            src='/images/available_stock.png'
+            width={35}
+            height={35}
+            color='white'
+          /> */}
         </div>
         <div
           className={styles.textDiv}

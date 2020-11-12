@@ -20,8 +20,7 @@ function App() {
           <Route exact path='/' component={Home} />
           <Route exact path='/signin' component={Signin} />
           <Route exact path='/register' component={Register} />
-
-          <PrivateRoute exact path='/auth' Component={Auth} />
+          <PrivateRoute path='/auth' Component={Auth} />
           <PrivateHospitalRoute
             exact
             path='/auth/hospital_dashboard'
