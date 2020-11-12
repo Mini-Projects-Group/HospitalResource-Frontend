@@ -52,22 +52,24 @@ const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const error = useSelector((state) => state.eReducer);
-  const [route, setRoute] = useState(false);
+  const [route, setRoute] = useState(0);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (type === 0) {
       await dispatch(login_hospital(email, password));
-      if (error.status !== BAD_STATUS) setRoute(true);
+      if (error.status !== BAD_STATUS) setRoute(1);
     } else {
       await dispatch(login_seller(email, password));
-      if (error.status !== BAD_STATUS) setRoute(true);
+      if (error.status !== BAD_STATUS) setRoute(2);
     }
   };
 
   const classes = useStyles();
 
-  if (route) return <Redirect to='/auth' />;
+  if (route === 1) return <Redirect to='/auth/hospital/dashboard' />;
+  else if (route === 2) return <Redirect to='/auth/seller/dashboard' />;
 
   return (
     <div className={styles.root}>

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import styles from "./Sidebar.module.css";
 import { AiOutlineHome } from "react-icons/ai";
 import { BiLogOutCircle } from "react-icons/bi";
@@ -21,12 +21,12 @@ const Sidebar = () => {
 
   const urlPrefix =
     localStorage.getItem("type") === "seller"
-      ? "/auth/seller_"
-      : "/auth/hospital_";
+      ? "/auth/seller/"
+      : "/auth/hospital/";
 
   const userType = localStorage.getItem("type");
 
-  const myL = useRef("/dashboard");
+  const myL = useRef(`${urlPrefix}dashboard`);
   const selected = useRef(0);
 
   const dispatch = useDispatch();
@@ -37,8 +37,6 @@ const Sidebar = () => {
   };
 
   myL.current = useLocation().pathname;
-
-  console.log(myL);
 
   switch (myL.current) {
     case `${urlPrefix}dashboard`:
@@ -65,8 +63,6 @@ const Sidebar = () => {
       break;
   }
 
-  console.log(selected.current);
-
   return (
     <div className={styles.root}>
       <Link
@@ -74,7 +70,6 @@ const Sidebar = () => {
         className={styles.main}
         style={selected.current === 0 ? selectedStyle.main : null}
         onClick={() => (selected.current = 0)}
-        //onClick={() => console.log("ahh")}
       >
         <div
           className={styles.iconDiv}
@@ -120,13 +115,17 @@ const Sidebar = () => {
           className={styles.iconDiv}
           style={selected.current === 2 ? selectedStyle.textColor : null}
         >
-          <BsListOl size={35} />
-          {/* <img
-            src='/images/available_stock.png'
-            width={35}
-            height={35}
+          {/* <BsListOl size={35} /> */}
+          <img
+            src={
+              selected.current === 2
+                ? "/images/available_stock_white.png"
+                : "/images/available_stock_grey.png"
+            }
+            width={45}
+            height={40}
             color='white'
-          /> */}
+          />
         </div>
         <div
           className={styles.textDiv}
@@ -147,7 +146,16 @@ const Sidebar = () => {
             className={styles.iconDiv}
             style={selected.current === 3 ? selectedStyle.textColor : null}
           >
-            <BsListOl size={35} />
+            <img
+              src={
+                selected.current === 3
+                  ? "/images/place_order_white.png"
+                  : "/images/place_order_grey.png"
+              }
+              width={45}
+              height={45}
+              color='white'
+            />
           </div>
           <div
             className={styles.textDiv}

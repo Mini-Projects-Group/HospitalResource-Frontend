@@ -59,53 +59,55 @@ const Auth = () => {
     f();
   }, [dispatch, token, type]);
 
-  if (type === "hospital")
-    return (
-      <div className={styles.root}>
-        <div className={styles.sidebar}>
-          <Sidebar />
-        </div>
-        <div className={styles.main}>
-          <Switch>
-            <Route
-              exact
-              path='/auth/hospital_dashboard'
-              component={HospitalDashboard}
-            />
-            <Route exact path='/auth/hospital_orders' component={Orders} />
-            <Route
-              exact
-              path='/auth/hospital_stock'
-              component={StockAvailable}
-            />
-            <Route
-              exact
-              path='/auth/hospital_placeorder'
-              component={SellerCard}
-            />
-          </Switch>
-        </div>
-      </div>
-    );
-  else
-    return (
-      <div className={styles.root}>
-        <div className={styles.sidebar}>
-          <Sidebar />
-        </div>
-        <div className={styles.main}>
-          <Switch>
-            <Route
-              exact
-              path='/auth/seller_dashboard'
-              component={SellerDashboard}
-            />
-            <Route exact path='/auth/seller_orders' component={Orders} />
-            <Route exact path='/auth/seller_stock' component={StockAvailable} />
-          </Switch>
-        </div>
-      </div>
-    );
+  // if (type === "hospital")
+  //   return (
+  //     <div className={styles.root}>
+  //       <div className={styles.sidebar}>
+  //         <Sidebar />
+  //       </div>
+  //       <div className={styles.main}>
+  //         <Switch>
+  //           <Route
+  //             exact
+  //             path='/auth/hospital_dashboard'
+  //             component={HospitalDashboard}
+  //           />
+  //           <Route exact path='/auth/hospital_orders' component={Orders} />
+  //           <Route
+  //             exact
+  //             path='/auth/hospital_stock'
+  //             component={StockAvailable}
+  //           />
+  //           <Route
+  //             exact
+  //             path='/auth/hospital_placeorder'
+  //             component={SellerCard}
+  //           />
+  //         </Switch>
+  //       </div>
+  //     </div>
+  //   );
+  // else
+  //   return (
+  //     <div className={styles.root}>
+  //       <div className={styles.sidebar}>
+  //         <Sidebar />
+  //       </div>
+  //       <div className={styles.main}>
+  //         <Switch>
+  //           <Route
+  //             exact
+  //             path='/auth/seller_dashboard'
+  //             component={SellerDashboard}
+  //           />
+  //           <Route exact path='/auth/seller_orders' component={Orders} />
+  //           <Route exact path='/auth/seller_stock' component={StockAvailable} />
+  //         </Switch>
+  //       </div>
+  //     </div>
+  //   );
+
+  return <div></div>;
 };
 
 export const Auth_Seller = () => (

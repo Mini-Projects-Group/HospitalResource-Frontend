@@ -13,7 +13,7 @@ const PrivateSellerRoute = ({ Component, ...rest }) => {
         localStorage.getItem("type") === "seller" ? (
           <Component {...props} />
         ) : (
-          <Redirect to='/' />
+          <Redirect to='/auth' />
         )
       }
     />
