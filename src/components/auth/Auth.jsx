@@ -1,23 +1,24 @@
-import React, { useEffect } from "react";
 import jwt_decode from "jwt-decode";
-import { useDispatch } from "react-redux";
-import { SELLER_LOADED } from "../../redux/seller/types";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Route, Switch } from "react-router-dom";
 import { HOSPITAL_LOADED } from "../../redux/hospital/types";
-import { Link, Route, Switch } from "react-router-dom";
-
-import Sidebar from "../sidebar/Sidebar";
+import { SELLER_LOADED } from "../../redux/seller/types";
+import PrivateHospitalRoute from "../../reusables/routes/PrivateHospitalRoute";
+import PrivateSellerRoute from "../../reusables/routes/PrivateSellerRoute";
 import HospitalDashboard from "../hospitalDashboard/HospitalDashboard";
 import Orders from "../orders/Orders";
-import StockAvailable from "../stock/StockAvailable";
-import SellerCard from "../../reusables/components/card/SellerCard";
-
-import styles from "./Auth.module.css";
+import PlaceOrder from "../placeOrder/PlaceOrder";
 import SellerDashboard from "../sellerDashboard/SellerDashboard";
+import Sidebar from "../sidebar/Sidebar";
+import StockAvailable from "../stock/StockAvailable";
+import styles from "./Auth.module.css";
 
 const Auth = () => {
   const token = localStorage.getItem("token");
   const type = localStorage.getItem("type");
   const dispatch = useDispatch();
+
   useEffect(() => {
     async function f() {
       let decoded = jwt_decode(token);
@@ -59,55 +60,12 @@ const Auth = () => {
     f();
   }, [dispatch, token, type]);
 
-  // if (type === "hospital")
-  //   return (
-  //     <div className={styles.root}>
-  //       <div className={styles.sidebar}>
-  //         <Sidebar />
-  //       </div>
-  //       <div className={styles.main}>
-  //         <Switch>
-  //           <Route
-  //             exact
-  //             path='/auth/hospital_dashboard'
-  //             component={HospitalDashboard}
-  //           />
-  //           <Route exact path='/auth/hospital_orders' component={Orders} />
-  //           <Route
-  //             exact
-  //             path='/auth/hospital_stock'
-  //             component={StockAvailable}
-  //           />
-  //           <Route
-  //             exact
-  //             path='/auth/hospital_placeorder'
-  //             component={SellerCard}
-  //           />
-  //         </Switch>
-  //       </div>
-  //     </div>
-  //   );
-  // else
-  //   return (
-  //     <div className={styles.root}>
-  //       <div className={styles.sidebar}>
-  //         <Sidebar />
-  //       </div>
-  //       <div className={styles.main}>
-  //         <Switch>
-  //           <Route
-  //             exact
-  //             path='/auth/seller_dashboard'
-  //             component={SellerDashboard}
-  //           />
-  //           <Route exact path='/auth/seller_orders' component={Orders} />
-  //           <Route exact path='/auth/seller_stock' component={StockAvailable} />
-  //         </Switch>
-  //       </div>
-  //     </div>
-  //   );
-
-  return <div></div>;
+  return (
+    <Switch>
+      <PrivateHospitalRoute path='/auth/hospital' Component={Auth_Hospital} />
+      <PrivateSellerRoute path='/auth/seller' Component={Auth_Seller} />
+    </Switch>
+  );
 };
 
 export const Auth_Seller = () => (
@@ -119,11 +77,11 @@ export const Auth_Seller = () => (
       <Switch>
         <Route
           exact
-          path='/auth/seller_dashboard'
+          path='/auth/seller/dashboard'
           component={SellerDashboard}
         />
-        <Route exact path='/auth/seller_orders' component={Orders} />
-        <Route exact path='/auth/seller_stock' component={StockAvailable} />
+        <Route exact path='/auth/seller/orders' component={Orders} />
+        <Route exact path='/auth/seller/stock' component={StockAvailable} />
       </Switch>
     </div>
   </div>
@@ -138,12 +96,12 @@ export const Auth_Hospital = () => (
       <Switch>
         <Route
           exact
-          path='/auth/hospital_dashboard'
+          path='/auth/hospital/dashboard'
           component={HospitalDashboard}
         />
-        <Route exact path='/auth/hospital_orders' component={Orders} />
-        <Route exact path='/auth/hospital_stock' component={StockAvailable} />
-        <Route exact path='/auth/hospital_placeorder' component={SellerCard} />
+        <Route exact path='/auth/hospital/orders' component={Orders} />
+        <Route exact path='/auth/hospital/stock' component={StockAvailable} />
+        <Route exact path='/auth/hospital/placeorder' component={PlaceOrder} />
       </Switch>
     </div>
   </div>
