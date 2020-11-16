@@ -1,9 +1,9 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import styles from "./Sidebar.module.css";
 import { AiOutlineHome } from "react-icons/ai";
 import { BiLogOutCircle } from "react-icons/bi";
 import { BsListOl } from "react-icons/bs";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, Link, Redirect } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { H_LOGOUT_SUCCESS } from "../../redux/hospital/types";
 import { S_LOGOUT_SUCCESS } from "../../redux/seller/types";
@@ -31,9 +31,13 @@ const Sidebar = () => {
 
   const dispatch = useDispatch();
 
+  const [logout, setLogout] = useState(false);
+
   const handleLogout = async () => {
     if (userType === "hospital") await dispatch({ type: H_LOGOUT_SUCCESS });
     else await dispatch({ type: S_LOGOUT_SUCCESS });
+
+    setLogout(true);
   };
 
   myL.current = useLocation().pathname;
@@ -62,6 +66,8 @@ const Sidebar = () => {
     default:
       break;
   }
+
+  if (logout) return <Redirect to='/' />;
 
   return (
     <div className={styles.root}>
@@ -166,7 +172,7 @@ const Sidebar = () => {
         </Link>
       ) : null}
 
-      <Link
+      <div
         className={`${styles.main} ${styles.logout}`}
         style={selected.current === 4 ? selectedStyle.main : null}
         onClick={handleLogout}
@@ -183,7 +189,7 @@ const Sidebar = () => {
         >
           Log Out
         </div>
-      </Link>
+      </div>
     </div>
   );
 };
