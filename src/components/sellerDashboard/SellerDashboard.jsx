@@ -19,7 +19,7 @@ const SellerDashboard = () => {
   const seller_id = useSelector(
     (state) => state?.sReducer?.sellerData?.seller_id
   );
-  console.log(seller_id);
+  //console.log(seller_id);
   const [items, setItems] = useState([]);
   useEffect(() => {
     async function f() {
@@ -29,28 +29,32 @@ const SellerDashboard = () => {
         "get",
         true
       );
-      setItems(result.data);
-      console.log(result.data);
+      setItems(result?.data);
+      console.log(result?.data);
     }
     f();
-  }, [items.length]);
+  }, [items?.length, seller_id]);
 
   const [itemName, setItemName] = useState("");
   const [totalQuantity, setTotalQuantity] = useState(null);
   const [unitPrice, setUnitPrice] = useState(null);
 
   const add = async () => {
-    const result = await async_func_data(
-      "api/item/add",
-      {
-        item_name: itemName,
-        quantity: parseInt(totalQuantity),
-        unit_price: parseInt(unitPrice),
-      },
-      "post",
-      true
-    );
-    console.log(result);
+    try {
+      const result = await async_func_data(
+        "api/item/add",
+        {
+          item_name: itemName,
+          quantity: parseInt(totalQuantity),
+          unit_price: parseInt(unitPrice),
+        },
+        "post",
+        true
+      );
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
