@@ -3,6 +3,8 @@ import axios from "axios";
 export const base_domain =
   "https://hospital-resource-management.herokuapp.com/";
 
+// export const base_domain = "http://localhost:5000/";
+
 export const axios_config = (api, paramsOrData, method) => ({
   method,
   url: base_domain + api,

@@ -40,12 +40,12 @@ export const Auth_Hospital = () => (
       <Switch>
         <Route
           exact
-          path="/auth/hospital_dashboard"
+          path="/auth/hospital/dashboard"
           component={HospitalDashboard}
         />
-        <Route exact path="/auth/hospital_orders" component={Orders} />
-        <Route exact path="/auth/hospital_stock" component={StockAvailable} />
-        <Route exact path="/auth/hospital_placeorder" component={SellerCard} />
+        <Route exact path="/auth/hospital/orders" component={Orders} />
+        <Route exact path="/auth/hospital/stock" component={StockAvailable} />
+        <Route exact path="/auth/hospital/placeorder" component={PlaceOrder} />
       </Switch>
     </div>
   </div>
