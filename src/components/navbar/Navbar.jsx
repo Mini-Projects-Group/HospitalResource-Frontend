@@ -1,18 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
-import { useDispatch } from "react-redux";
-import { login_hospital } from "../../redux/hospital/action";
-import { login_seller } from "../../redux/seller/action";
+import { useEffect } from "react";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(login_seller("seller@g.com", "qwerty"));
-  // }, [dispatch]);
 
   return (
     <div
@@ -25,16 +20,16 @@ const Navbar = () => {
       <header className={styles.nav}>
         <div className={styles.container}>
           <div className={styles.logo}>
-            <img src="/images/logo.png" className={styles.logoImg} />
+            <img src='/images/logo.png' className={styles.logoImg} />
           </div>
           <ul className={`${open ? styles.open : ""} ${styles.navUl}`}>
             <li className={styles.navLi}>
-              <Link to="/signin" className={styles.navLinks}>
+              <Link to='/signin' className={styles.navLinks}>
                 Sign in
               </Link>
             </li>
             <li className={styles.navLi}>
-              <Link to="/register" className={styles.navLinks}>
+              <Link to='/register' className={styles.navLinks}>
                 Get Started
               </Link>
             </li>
