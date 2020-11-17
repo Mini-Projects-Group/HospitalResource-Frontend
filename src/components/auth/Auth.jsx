@@ -22,11 +22,11 @@ export const Auth_Seller = () => (
       <Switch>
         <Route
           exact
-          path="/auth/seller/dashboard"
+          path='/auth/seller/dashboard'
           component={SellerDashboard}
         />
-        <Route exact path="/auth/seller_orders" component={Orders} />
-        <Route exact path="/auth/seller_stock" component={StockAvailable} />
+        <Route exact path='/auth/seller/orders' component={Orders} />
+        <Route exact path='/auth/seller/stock' component={StockAvailable} />
       </Switch>
     </div>
   </div>
@@ -41,12 +41,12 @@ export const Auth_Hospital = () => (
       <Switch>
         <Route
           exact
-          path="/auth/hospital/dashboard"
+          path='/auth/hospital/dashboard'
           component={HospitalDashboard}
         />
-        <Route exact path="/auth/hospital/orders" component={Orders} />
-        <Route exact path="/auth/hospital/stock" component={StockAvailable} />
-        <Route exact path="/auth/hospital/placeorder" component={PlaceOrder} />
+        <Route exact path='/auth/hospital/orders' component={Orders} />
+        <Route exact path='/auth/hospital/stock' component={StockAvailable} />
+        <Route exact path='/auth/hospital/placeorder' component={PlaceOrder} />
       </Switch>
     </div>
   </div>
