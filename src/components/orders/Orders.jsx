@@ -53,6 +53,9 @@ const Orders = () => {
                 date_order={order.date_order}
                 order_id={order.order_id}
                 status={order.status}
+                hospital_name={order.hospital_name}
+                address={order.address}
+                items={order.items}
                 buttonContent1="Decline"
                 buttonContent2="Accept"
                 buttonClick1={async () => {
