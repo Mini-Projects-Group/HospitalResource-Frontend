@@ -20,18 +20,18 @@ const OrderCard = ({
       <div className={styles.header}>
         <div className={styles.orderId}>Order ID: {order_id}</div>
         <div className={styles.orderDate}>
-          {moment(date_order).format("MMM Do YY")}
+          {moment(date_order).format("Do MMM YYYY")}
         </div>
       </div>
       <div className={styles.details}></div>
       <div className={styles.footer}>
         <div className={styles.decline}>
-          <Button variant="contained" color="secondary" onClick={buttonClick1}>
+          <Button variant='contained' color='secondary' onClick={buttonClick1}>
             {buttonContent1}
           </Button>
         </div>
         <div className={styles.accept}>
-          <Button variant="contained" color="primary" onClick={buttonClick2}>
+          <Button variant='contained' color='primary' onClick={buttonClick2}>
             {buttonContent2}
           </Button>
         </div>

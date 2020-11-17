@@ -1,0 +1,112 @@
+@font-face {
+  font-family: ssp;
+  src: url("/fonts/SourceSansPro-Regular.otf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: sspb;
+  src: url("/fonts/SourceSansPro-Bold.otf");
+  font-display: swap;
+}
+
+.Modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  border: none;
+  z-index: 999;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 30px;
+  min-width: 300px;
+  max-width: 350px;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.219);
+}
+
+.Modal:focus {
+  outline: 0;
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  -webkit-backdrop-filter: blur(2.3px);
+  backdrop-filter: blur(2.3px);
+  background-color: #7070702a;
+  z-index: 999;
+}
+
+@supports not (backdrop-filter: none) {
+  .Overlay {
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
+
+.root {
+  display: flex;
+  box-shadow: 0px 2px 7px rgba(94, 144, 156, 0.198);
+
+  font-family: sspb;
+}
+
+.root2 {
+  font-family: ssp;
+}
+
+.itemName {
+  flex: 2;
+  display: flex;
+  padding: 0.8em 0em;
+  justify-content: center;
+  align-items: center;
+}
+.sr {
+  flex: 0.5;
+  display: flex;
+  padding: 0.8em 0em;
+  justify-content: center;
+  align-items: center;
+}
+
+.itemId {
+  flex: 1;
+  display: flex;
+  padding: 0.8em 0em;
+  justify-content: center;
+  align-items: center;
+}
+
+.quantity {
+  flex: 1;
+  display: flex;
+  padding: 0.8em 0em;
+  justify-content: center;
+  align-items: center;
+}
+
+.modifyBtnDiv {
+  flex: 1;
+  display: flex;
+  padding: 0.8em 0em;
+  justify-content: center;
+  align-items: center;
+}
+
+.deleteBtnDiv {
+  flex: 1;
+  display: flex;
+  padding: 0.8em 0em;
+  justify-content: center;
+  align-items: center;
+}

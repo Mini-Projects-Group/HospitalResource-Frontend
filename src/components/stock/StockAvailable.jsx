@@ -4,6 +4,9 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { async_func_data } from "../../redux";
 import { BAD_STATUS } from "../../redux/utils/constants";
+import OrderHeader from "../placeOrder/OrderHeader";
+import StockHeader from "./StockHeader";
+import StockRow from "./StockRow";
 
 const StockAvailable = () => {
   const [stock, setStock] = useState([]);
@@ -33,7 +36,20 @@ const StockAvailable = () => {
 
   if (loading) return <div className={styles.root}>Loading...</div>;
 
-  return <div className={styles.root}>StockAvailable</div>;
+  return (
+    <div className={styles.root}>
+      <div className={styles.table}>
+        <div className={styles.tableHeader}>
+          <StockHeader />
+        </div>
+        <div className={styles.tableBorder}>
+          {stock.map((item, idx) => (
+            <StockRow key={idx} item={item} idx={idx} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default StockAvailable;

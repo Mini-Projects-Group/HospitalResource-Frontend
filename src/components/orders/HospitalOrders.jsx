@@ -3,6 +3,7 @@ import styles from "./HospitalOrders.module.css";
 import { async_func_data } from "../../redux";
 import { BAD_STATUS } from "../../redux/utils/constants";
 import OrderCard from "../../reusables/components/orderCard/OrderCard";
+import HOrderCard from "./HOrderCard";
 
 const HospitalOrders = () => {
   const [orders, setOrders] = useState([]);
@@ -17,7 +18,7 @@ const HospitalOrders = () => {
         res = await async_func_data("api/stock", null, "get", true);
 
         if (res.status !== BAD_STATUS) {
-          setOrders(res.data.orders);
+          setOrders(res.data.orders.reverse());
         }
       } catch (err) {
         console.log(err);
@@ -34,18 +35,7 @@ const HospitalOrders = () => {
   return (
     <div className={styles.root}>
       {orders.map((item, idx) => (
-        <OrderCard
-          key={idx}
-          {...item}
-          buttonContent1='Decline'
-          buttonContent2='Accept'
-          //   buttonClick1={async () => {
-          //     await handleDeclineOrder(order.order_id);
-          //   }}
-          //   buttonClick2={async () => {
-          //     await handleAcceptOrder(order.order_id);
-          //   }}
-        />
+        <HOrderCard key={idx} {...item} />
       ))}
     </div>
   );
