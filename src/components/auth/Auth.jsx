@@ -7,6 +7,7 @@ import SellerDashboard from "../sellerDashboard/SellerDashboard";
 import Sidebar from "../sidebar/Sidebar";
 import StockAvailable from "../stock/StockAvailable";
 import styles from "./Auth.module.css";
+import MainOrderPage from "../placeOrder/MainOrderPage";
 import PlaceOrder from "../placeOrder/PlaceOrder";
 
 const Auth = () => {
@@ -47,6 +48,11 @@ export const Auth_Hospital = () => (
         <Route exact path='/auth/hospital/orders' component={Orders} />
         <Route exact path='/auth/hospital/stock' component={StockAvailable} />
         <Route exact path='/auth/hospital/placeorder' component={PlaceOrder} />
+        <Route
+          exact
+          path='/auth/hospital/placeorder/:sellerid'
+          component={MainOrderPage}
+        />
       </Switch>
     </div>
   </div>

@@ -55,6 +55,7 @@ const Sidebar = () => {
       selected.current = 2;
       break;
 
+    // case `${urlPrefix}placeorder/:id`:
     case `${urlPrefix}placeorder`:
       selected.current = 3;
       break;
