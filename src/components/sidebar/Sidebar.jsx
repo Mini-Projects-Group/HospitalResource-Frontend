@@ -68,7 +68,7 @@ const Sidebar = () => {
       break;
   }
 
-  if (logout) return <Redirect to='/' />;
+  if (logout) return <Redirect to="/" />;
 
   return (
     <div className={styles.root}>
@@ -131,7 +131,7 @@ const Sidebar = () => {
             }
             width={45}
             height={40}
-            color='white'
+            color="white"
           />
         </div>
         <div
@@ -161,7 +161,7 @@ const Sidebar = () => {
               }
               width={45}
               height={45}
-              color='white'
+              color="white"
             />
           </div>
           <div
