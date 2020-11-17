@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Auth from "./components/auth/Auth";
+import Auth, { Auth_Hospital, Auth_Seller } from "./components/auth/Auth";
 import Home from "./components/home/Home";
 import Navbar from "./components/navbar/Navbar";
 import Register from "./components/register/Register";
 import Signin from "./components/signin/Signin";
 import PrivateRoute from "./reusables/routes/PrivateRoute";
 import PrivateSellerRoute from "./reusables/routes/PrivateSellerRoute";
+import PrivateHospitalRoute from "./reusables/routes/PrivateHospitalRoute";
 import jwt_decode from "jwt-decode";
 import { useDispatch } from "react-redux";
 import { SELLER_LOADED } from "./redux/seller/types";
@@ -62,7 +63,6 @@ function App() {
       <div className="App">
         <Navbar />
         <Switch>
-<<<<<<< HEAD
           <Route exact path="/" component={Home} />
           <Route exact path="/signin" component={Signin} />
           <Route exact path="/register" component={Register} />
@@ -72,12 +72,6 @@ function App() {
           />
           <PrivateSellerRoute path="/auth/seller" Component={Auth_Seller} />
           <PrivateRoute path="/auth" Component={Auth} />
-=======
-          <Route exact path='/' component={Home} />
-          <Route exact path='/signin' component={Signin} />
-          <Route exact path='/register' component={Register} />
-          <PrivateRoute path='/auth' Component={Auth} />
->>>>>>> master
         </Switch>
       </div>
     </BrowserRouter>

@@ -7,6 +7,7 @@ import SellerDashboard from "../sellerDashboard/SellerDashboard";
 import Sidebar from "../sidebar/Sidebar";
 import StockAvailable from "../stock/StockAvailable";
 import styles from "./Auth.module.css";
+import PlaceOrder from "../placeOrder/PlaceOrder";
 
 const Auth = () => {
   return <div></div>;
