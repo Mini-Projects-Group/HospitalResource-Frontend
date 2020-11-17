@@ -114,3 +114,14 @@
   display: flex;
   justify-content: flex-end;
 }
+
+.single {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.single + .single {
+  margin-top: 5px;
+  border-top: 1px solid black;
+}

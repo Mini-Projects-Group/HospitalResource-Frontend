@@ -24,6 +24,9 @@ const OrderCard = ({
     setIsOpen(false);
   };
 
+  let list = JSON.parse(items);
+  console.log(list);
+
   return (
     <div
       className={`${styles.root} ${
@@ -56,7 +59,18 @@ const OrderCard = ({
             className={styles.Modal}
             overlayClassName={styles.Overlay}
           >
-            {items}
+            <div className={styles.single}>
+              <div>Item Id</div>
+              <div>Item Name</div>
+              <div>Quantity</div>
+            </div>
+            {list.map((item, index) => (
+              <div key={index} className={styles.single}>
+                <div>{item.item_id}</div>
+                <div>{item.item_name}</div>
+                <div>{item.quantity}</div>
+              </div>
+            ))}
           </Modal>
         </div>
       </div>

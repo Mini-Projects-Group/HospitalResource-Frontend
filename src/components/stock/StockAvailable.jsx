@@ -19,7 +19,7 @@ const StockAvailable = () => {
         let res;
 
         res = await async_func_data("api/stock", null, "get", true);
-
+        console.log(res);
         if (res.status !== BAD_STATUS) {
           setStock(res.data.stock_items);
         }
