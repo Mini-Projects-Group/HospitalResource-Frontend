@@ -9,6 +9,7 @@ import StockAvailable from "../stock/StockAvailable";
 import styles from "./Auth.module.css";
 import MainOrderPage from "../placeOrder/MainOrderPage";
 import PlaceOrder from "../placeOrder/PlaceOrder";
+import HospitalOrders from "../orders/HospitalOrders";
 
 const Auth = () => {
   return <div></div>;
@@ -27,7 +28,6 @@ export const Auth_Seller = () => (
           component={SellerDashboard}
         />
         <Route exact path='/auth/seller/orders' component={Orders} />
-        <Route exact path='/auth/seller/stock' component={StockAvailable} />
       </Switch>
     </div>
   </div>
@@ -45,7 +45,7 @@ export const Auth_Hospital = () => (
           path='/auth/hospital/dashboard'
           component={HospitalDashboard}
         />
-        <Route exact path='/auth/hospital/orders' component={Orders} />
+        <Route exact path='/auth/hospital/orders' component={HospitalOrders} />
         <Route exact path='/auth/hospital/stock' component={StockAvailable} />
         <Route exact path='/auth/hospital/placeorder' component={PlaceOrder} />
         <Route
