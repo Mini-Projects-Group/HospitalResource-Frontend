@@ -68,7 +68,7 @@ const Sidebar = () => {
       break;
   }
 
-  if (logout) return <Redirect to="/" />;
+  if (logout) return <Redirect to='/' />;
 
   return (
     <div className={styles.root}>
@@ -111,36 +111,37 @@ const Sidebar = () => {
           Orders
         </div>
       </Link>
-
-      <Link
-        to={`${urlPrefix}stock`}
-        className={styles.main}
-        style={selected.current === 2 ? selectedStyle.main : null}
-        onClick={() => (selected.current = 2)}
-      >
-        <div
-          className={styles.iconDiv}
-          style={selected.current === 2 ? selectedStyle.textColor : null}
+      {userType === "hospital" ? (
+        <Link
+          to={`${urlPrefix}stock`}
+          className={styles.main}
+          style={selected.current === 2 ? selectedStyle.main : null}
+          onClick={() => (selected.current = 2)}
         >
-          {/* <BsListOl size={35} /> */}
-          <img
-            src={
-              selected.current === 2
-                ? "/images/available_stock_white.png"
-                : "/images/available_stock_grey.png"
-            }
-            width={45}
-            height={40}
-            color="white"
-          />
-        </div>
-        <div
-          className={styles.textDiv}
-          style={selected.current === 2 ? selectedStyle.textColor : null}
-        >
-          Available Stock
-        </div>
-      </Link>
+          <div
+            className={styles.iconDiv}
+            style={selected.current === 2 ? selectedStyle.textColor : null}
+          >
+            {/* <BsListOl size={35} /> */}
+            <img
+              src={
+                selected.current === 2
+                  ? "/images/available_stock_white.png"
+                  : "/images/available_stock_grey.png"
+              }
+              width={45}
+              height={40}
+              color='white'
+            />
+          </div>
+          <div
+            className={styles.textDiv}
+            style={selected.current === 2 ? selectedStyle.textColor : null}
+          >
+            Available Stock
+          </div>
+        </Link>
+      ) : null}
 
       {userType === "hospital" ? (
         <Link
@@ -161,7 +162,7 @@ const Sidebar = () => {
               }
               width={45}
               height={45}
-              color="white"
+              color='white'
             />
           </div>
           <div

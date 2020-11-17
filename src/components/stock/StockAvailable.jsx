@@ -6,28 +6,16 @@ import { async_func_data } from "../../redux";
 import { BAD_STATUS } from "../../redux/utils/constants";
 
 const StockAvailable = () => {
-  const type = localStorage.getItem("type");
-  let id;
-
   const [stock, setStock] = useState([]);
   const [loading, setLoading] = useState(false);
-
-  id = useSelector((state) => {
-    if (state.hReducer) return state?.hReducer?.hospitalData?.hospital_id;
-    //else return state.sReducer.sellerData.seller_id;
-  });
 
   useEffect(() => {
     const f = async () => {
       setLoading(true);
       try {
         let res;
-        if (type === "hospital") {
-          res = await async_func_data("api/stock", null, "get", true);
 
-          console.log(res);
-        } else {
-        }
+        res = await async_func_data("api/stock", null, "get", true);
 
         if (res.status !== BAD_STATUS) {
           setStock(res.data.stock_items);
@@ -39,7 +27,11 @@ const StockAvailable = () => {
       setLoading(false);
     };
     f();
-  }, [id, type]);
+  }, []);
+
+  console.log(stock);
+
+  if (loading) return <div className={styles.root}>Loading...</div>;
 
   return <div className={styles.root}>StockAvailable</div>;
 };
