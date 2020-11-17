@@ -7,7 +7,13 @@ import styles from "./SellerDashboardRow.module.css";
 import Modal from "react-modal";
 import { useState } from "react";
 
-const SellerDashboardRow = ({ index, item_id, item_name, quantity }) => {
+const SellerDashboardRow = ({
+  index,
+  item_id,
+  item_name,
+  quantity,
+  btnClick1,
+}) => {
   const [modalIsOpen, setIsOpen] = React.useState(false);
   function openModal() {
     setIsOpen(true);
@@ -58,7 +64,7 @@ const SellerDashboardRow = ({ index, item_id, item_name, quantity }) => {
       <div className={styles.itemName}>{item_name}</div>
       <div className={styles.quantity}>{quantity}</div>
       <div className={styles.modifyBtnDiv}>
-        <Button variant='contained' color='primary' onClick={modifyopenModal}>
+        <Button variant="contained" color="primary" onClick={btnClick1}>
           Modify Quantity
         </Button>
         <Modal
@@ -68,16 +74,16 @@ const SellerDashboardRow = ({ index, item_id, item_name, quantity }) => {
           overlayClassName={styles.Overlay}
         >
           <TextField
-            id='outlined-basic'
-            label='Add Quantity'
-            variant='outlined'
+            id="outlined-basic"
+            label="Add Quantity"
+            variant="outlined"
             value={quan}
             onChange={(e) => setQuan(e.target.value)}
           />
           <div style={{ marginTop: "25px" }}>
             <Button
-              variant='contained'
-              color='primary'
+              variant="contained"
+              color="primary"
               onClick={() => {
                 handleModify();
                 modifycloseModal();
@@ -90,19 +96,19 @@ const SellerDashboardRow = ({ index, item_id, item_name, quantity }) => {
       </div>
       <div className={styles.deleteBtnDiv}>
         <Button
-          variant='contained'
-          color='secondary'
+          variant="contained"
+          color="secondary"
           onClick={() => openModal()}
         >
           Delete
         </Button>
         <AlertModal
-          buttonContent1='Cancel'
-          buttonContent2='Confirm'
+          buttonContent1="Cancel"
+          buttonContent2="Confirm"
           modalIsOpen={modalIsOpen}
           closeModal={closeModal}
-          heading='Are you sure about deleting this ?'
-          content='Click confirm to Delete or click cancel to revoke your decision '
+          heading="Are you sure about deleting this ?"
+          content="Click confirm to Delete or click cancel to revoke your decision "
           buttonClick1={closeModal}
           buttonClick2={() => {
             handleDelete();
