@@ -1,14 +1,12 @@
 import React, { useState } from "react";
-import styles from "./OrderRow.module.css";
+import styles from "./StockHeader.module.css";
 import { Button, TextField } from "@material-ui/core";
 import Modal from "react-modal";
+import { async_func_data } from "../../redux";
 
-const OrderRow = (props) => {
-  const { idx, cart, setCart } = props;
-  const { item_id, item_name, unit_price } = props.item;
-
-  const [quantity, setQuantity] = useState(0);
-  const [local, setLocal] = useState(0);
+const StockRow = (props) => {
+  const { idx } = props;
+  const { item_id, item, quantity } = props.item;
 
   const [modalIsOpen, setIsOpen] = useState(false);
   const openModal = () => {
@@ -22,30 +20,26 @@ const OrderRow = (props) => {
     openModal();
   };
 
-  const handleQuantityClick = () => {
-    setQuantity(local);
-    closeModal();
+  const handleUse = async () => {
+    try {
+      const res = await async_func_data(
+        "api/stock/used",
+        { items: [{ item_id, quantity: local, item }] },
+        "post",
+        true
+      );
 
-    if (local) {
-      // let temp = cart;
-      // let temp2;
-      // temp2 = temp.filter((val) => val.item_id !== item_id);
-
-      // console.log(temp2);
-      // console.log("hello");
-      setCart((prev) => [
-        ...prev,
-        {
-          item_id,
-          item_name,
-          quantity: parseInt(local),
-        },
-      ]);
+      console.log(res);
+    } catch (error) {
+      console.log(error);
     }
   };
 
+  //const [quantity, setQuantity] = useState(0);
+  const [local, setLocal] = useState(0);
+
   return (
-    <div className={styles.root}>
+    <div className={`${styles.root} ${styles.root2}`}>
       <Modal
         onRequestClose={closeModal}
         isOpen={modalIsOpen}
@@ -54,32 +48,32 @@ const OrderRow = (props) => {
         appElement={document.getElementById("root")}
       >
         <TextField
-          label='Enter Quantity'
+          label='Quantity to be used'
           type='number'
           value={local}
           onChange={(e) => setLocal(e.target.value)}
         />
         <Button
-          onClick={handleQuantityClick}
+          onClick={handleUse}
           variant='outlined'
           style={{ margin: "20px 0px" }}
         >
-          Add
+          Use
         </Button>
       </Modal>
       <div className={styles.sr}>{idx + 1}</div>
       <div className={styles.itemId}>{item_id}</div>
-      <div className={styles.itemName}>{item_name}</div>
-      <div className={styles.modifyBtnDiv}>{unit_price}</div>
+      <div className={styles.itemName}>{item}</div>
+      {/* <div className={styles.modifyBtnDiv}>Unit Price(Rs.)</div> */}
       <div className={styles.quantity}>{quantity}</div>
+      {/* <div className={styles.deleteBtnDiv}></div> */}
       <div className={styles.deleteBtnDiv}>
-        <Button onClick={handleClick} variant='outlined'>
-          Add
+        <Button variant='outlined' onClick={handleClick}>
+          Use Item
         </Button>
       </div>
-      <div className={styles.deleteBtnDiv}>{quantity * unit_price}</div>
     </div>
   );
 };
 
-export default OrderRow;
+export default StockRow;

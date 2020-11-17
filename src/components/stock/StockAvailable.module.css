@@ -1,0 +1,10 @@
+.root {
+  display: grid;
+  place-items: center;
+
+  min-height: 85vh;
+}
+
+.table {
+  width: 70%;
+}
