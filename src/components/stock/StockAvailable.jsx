@@ -13,8 +13,8 @@ const StockAvailable = () => {
   const [loading, setLoading] = useState(false);
 
   id = useSelector((state) => {
-    if (state.hReducer) return state.hReducer.hospital_id;
-    else return state.hReducer.seller_id;
+    if (state.hReducer) return state?.hReducer?.hospitalData?.hospital_id;
+    //else return state.sReducer.sellerData.seller_id;
   });
 
   useEffect(() => {
@@ -23,19 +23,14 @@ const StockAvailable = () => {
       try {
         let res;
         if (type === "hospital") {
-          res = await async_func_data(
-            "api/stock",
-            { hospital_id: id },
-            "get",
-            true
-          );
+          res = await async_func_data("api/stock", null, "get", true);
 
           console.log(res);
         } else {
         }
 
         if (res.status !== BAD_STATUS) {
-          setStock(res.data);
+          setStock(res.data.stock_items);
         }
       } catch (err) {
         console.log(err);

@@ -34,6 +34,8 @@ const MainOrderPage = (props) => {
     f();
   }, [seller_id]);
 
+  console.log(sellerItems);
+
   if (loading) return <div className={styles.root}>Loading...</div>;
 
   return <div className={styles.root}></div>;
