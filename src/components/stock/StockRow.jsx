@@ -5,8 +5,8 @@ import Modal from "react-modal";
 import { async_func_data } from "../../redux";
 
 const StockRow = (props) => {
-  const { idx } = props;
-  const { item_id, item, quantity } = props.item;
+  const { idx, f } = props;
+  const { item_id, item_name, quantity } = props.item;
 
   const [modalIsOpen, setIsOpen] = useState(false);
   const openModal = () => {
@@ -24,11 +24,13 @@ const StockRow = (props) => {
     try {
       const res = await async_func_data(
         "api/stock/used",
-        { items: [{ item_id, quantity: local, item }] },
+        { items: [{ item_id, quantity: local, item_name }] },
         "post",
         true
       );
 
+      closeModal();
+      f();
       console.log(res);
     } catch (error) {
       console.log(error);
@@ -63,7 +65,7 @@ const StockRow = (props) => {
       </Modal>
       <div className={styles.sr}>{idx + 1}</div>
       <div className={styles.itemId}>{item_id}</div>
-      <div className={styles.itemName}>{item}</div>
+      <div className={styles.itemName}>{item_name}</div>
       {/* <div className={styles.modifyBtnDiv}>Unit Price(Rs.)</div> */}
       <div className={styles.quantity}>{quantity}</div>
       {/* <div className={styles.deleteBtnDiv}></div> */}

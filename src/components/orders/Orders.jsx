@@ -10,17 +10,18 @@ const Orders = () => {
   );
   const [orders, setOrders] = useState(null);
 
+  async function f() {
+    const result = await async_func_data(
+      `api/orders/allOrders`,
+      null,
+      "get",
+      true
+    );
+    console.log(result.data);
+    setOrders(result.data);
+  }
+
   useEffect(() => {
-    async function f() {
-      const result = await async_func_data(
-        `api/orders/allOrders`,
-        null,
-        "get",
-        true
-      );
-      console.log(result.data);
-      setOrders(result.data);
-    }
     f();
   }, [seller_id]);
 
@@ -31,6 +32,7 @@ const Orders = () => {
       "get",
       true
     );
+    f();
     console.log(result);
   };
   const handleDeclineOrder = async (order_id) => {
@@ -40,6 +42,7 @@ const Orders = () => {
       "delete",
       true
     );
+    f();
     console.log(result);
   };
 
@@ -56,8 +59,8 @@ const Orders = () => {
                 hospital_name={order.hospital_name}
                 address={order.address}
                 items={order.items}
-                buttonContent1="Decline"
-                buttonContent2="Accept"
+                buttonContent1='Decline'
+                buttonContent2='Accept'
                 buttonClick1={async () => {
                   await handleDeclineOrder(order.order_id);
                 }}
