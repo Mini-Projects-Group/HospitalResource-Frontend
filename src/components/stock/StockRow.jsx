@@ -24,7 +24,7 @@ const StockRow = (props) => {
     try {
       const res = await async_func_data(
         "api/stock/used",
-        { items: [{ item_id, quantity: local, item_name }] },
+        { items: [{ item_id, quantity: parseInt(local), item_name }] },
         "post",
         true
       );

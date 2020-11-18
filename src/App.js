@@ -12,6 +12,7 @@ import jwt_decode from "jwt-decode";
 import { useDispatch } from "react-redux";
 import { SELLER_LOADED } from "./redux/seller/types";
 import { HOSPITAL_LOADED } from "./redux/hospital/types";
+import Footer from "./reusables/components/footer/Footer";
 function App() {
   const token = localStorage.getItem("token");
   const type = localStorage.getItem("type");
@@ -60,19 +61,20 @@ function App() {
   }, [dispatch, token, type]);
   return (
     <BrowserRouter>
-      <div className="App">
+      <div className='App'>
         <Navbar />
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/signin" component={Signin} />
-          <Route exact path="/register" component={Register} />
+          <Route exact path='/' component={Home} />
+          <Route exact path='/signin' component={Signin} />
+          <Route exact path='/register' component={Register} />
           <PrivateHospitalRoute
-            path="/auth/hospital"
+            path='/auth/hospital'
             Component={Auth_Hospital}
           />
-          <PrivateSellerRoute path="/auth/seller" Component={Auth_Seller} />
-          <PrivateRoute path="/auth" Component={Auth} />
+          <PrivateSellerRoute path='/auth/seller' Component={Auth_Seller} />
+          <PrivateRoute path='/auth' Component={Auth} />
         </Switch>
+        <Footer />
       </div>
     </BrowserRouter>
   );
