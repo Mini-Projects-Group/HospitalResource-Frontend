@@ -7,6 +7,7 @@ import { BAD_STATUS } from "../../redux/utils/constants";
 import OrderHeader from "../placeOrder/OrderHeader";
 import StockHeader from "./StockHeader";
 import StockRow from "./StockRow";
+import Loader from "../../reusables/components/loader/Loader";
 
 const StockAvailable = () => {
   const [stock, setStock] = useState([]);
@@ -34,7 +35,12 @@ const StockAvailable = () => {
 
   console.log(stock);
 
-  if (loading) return <div className={styles.root}>Loading...</div>;
+  if (loading)
+    return (
+      <div className={styles.root}>
+        <Loader />
+      </div>
+    );
 
   return (
     <div className={styles.root}>

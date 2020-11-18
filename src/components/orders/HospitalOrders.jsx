@@ -4,6 +4,7 @@ import { async_func_data } from "../../redux";
 import { BAD_STATUS } from "../../redux/utils/constants";
 import OrderCard from "../../reusables/components/orderCard/OrderCard";
 import HOrderCard from "./HOrderCard";
+import Loader from "../../reusables/components/loader/Loader";
 
 const HospitalOrders = () => {
   const [orders, setOrders] = useState([]);
@@ -29,7 +30,12 @@ const HospitalOrders = () => {
     f();
   }, []);
 
-  if (loading) return <div className={styles.root}>Loading...</div>;
+  if (loading)
+    return (
+      <div className={styles.root}>
+        <Loader />
+      </div>
+    );
 
   console.log(orders);
   return (

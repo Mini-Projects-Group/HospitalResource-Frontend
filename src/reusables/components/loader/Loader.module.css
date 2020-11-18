@@ -1,0 +1,46 @@
+.main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.root {
+  height: 80px;
+  width: 80px;
+  position: relative;
+}
+
+.root div {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  border: 8px solid transparent;
+  border-top-color: #1976d2;
+  border-radius: 50%;
+
+  box-sizing: border-box;
+  animation: spinner 1.2s linear infinite;
+}
+
+.root div:nth-child(2) {
+  border: 8px solid transparent;
+  border-bottom-color: #1976d2;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+    border-width: 10px;
+  }
+
+  50% {
+    transform: rotate(180deg);
+    border-width: 1px;
+  }
+
+  100% {
+    transform: rotate(360deg);
+    border-width: 10px;
+  }
+}
