@@ -1,0 +1,22 @@
+@font-face {
+  font-family: sspb;
+  src: url("/fonts/SourceSansPro-Bold.otf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: ssp;
+  src: url("/fonts/SourceSansPro-Regular.otf");
+  font-display: swap;
+}
+
+.root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0px 20px 0px;
+
+  font-family: sspb;
+  color: #5c5c5c;
+}

@@ -13,23 +13,24 @@ const StockAvailable = () => {
   const [stock, setStock] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    const f = async () => {
-      setLoading(true);
-      try {
-        let res;
+  const f = async () => {
+    setLoading(true);
+    try {
+      let res;
 
-        res = await async_func_data("api/stock", null, "get", true);
-        console.log(res);
-        if (res.status !== BAD_STATUS) {
-          setStock(res.data.stock_items);
-        }
-      } catch (err) {
-        console.log(err);
+      res = await async_func_data("api/stock", null, "get", true);
+      console.log(res);
+      if (res.status !== BAD_STATUS) {
+        setStock(res.data.stock_items);
       }
+    } catch (err) {
+      console.log(err);
+    }
 
-      setLoading(false);
-    };
+    setLoading(false);
+  };
+
+  useEffect(() => {
     f();
   }, []);
 
@@ -50,7 +51,7 @@ const StockAvailable = () => {
         </div>
         <div className={styles.tableBorder}>
           {stock.map((item, idx) => (
-            <StockRow key={idx} item={item} idx={idx} />
+            <StockRow key={idx} item={item} idx={idx} f={f} />
           ))}
         </div>
       </div>
