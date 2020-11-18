@@ -6,6 +6,7 @@ import { useState } from "react";
 import { async_func_data } from "../../redux";
 import { BAD_STATUS } from "../../redux/utils/constants";
 import SellerCard from "../../reusables/components/card/SellerCard";
+import Loader from "../../reusables/components/loader/Loader";
 
 const PlaceOrder = () => {
   const dispatch = useDispatch();
@@ -30,7 +31,12 @@ const PlaceOrder = () => {
     f();
   }, []);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading)
+    return (
+      <div>
+        <Loader />
+      </div>
+    );
 
   return (
     <div className={styles.root}>
