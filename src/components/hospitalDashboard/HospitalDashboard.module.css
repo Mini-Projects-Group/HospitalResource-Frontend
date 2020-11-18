@@ -1,0 +1,11 @@
+.root {
+}
+
+.pieCard {
+  height: 500px;
+  width: 500px;
+  background-color: aqua;
+
+  /* display: grid;
+  place-items: center; */
+}
