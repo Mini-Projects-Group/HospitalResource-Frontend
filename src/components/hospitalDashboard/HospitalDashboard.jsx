@@ -37,17 +37,11 @@ const HospitalDashboard = () => {
 
   for (i = 0; i < stock.length; i++) {
     temp.push({
-      id: stock[i].item_id,
-      label: `${stock[i].item} : ${stock_items[i].quantity}`,
+      id: stock[i].item_name,
+      label: `${stock[i].item_name} : ${stock_items[i].quantity}`,
       value: parseFloat(stock[i].percent),
-      //color: "hsl(111, 70%, 50%)",
-      // color: `hsl(${Math.random() * 1000}, ${parseInt(stock[i].percent)}% , ${
-      //   110 - parseInt(stock[i].percent)
-      // }%)`,
     });
   }
-
-  // setData(temp);
 
   return (
     <div className={styles.root}>
