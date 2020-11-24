@@ -27,20 +27,15 @@ const OrderRow = (props) => {
     closeModal();
 
     if (local) {
-      // let temp = cart;
-      // let temp2;
-      // temp2 = temp.filter((val) => val.item_id !== item_id);
-
-      // console.log(temp2);
-      // console.log("hello");
-      setCart((prev) => [
-        ...prev,
-        {
-          item_id,
-          item_name,
-          quantity: parseInt(local),
-        },
-      ]);
+      let temp = cart.map((item, index) =>
+        idx === index
+          ? {
+              ...item,
+              quantity: parseInt(local),
+            }
+          : item
+      );
+      setCart(temp);
     }
   };
 
@@ -71,7 +66,7 @@ const OrderRow = (props) => {
       <div className={styles.itemId}>{item_id}</div>
       <div className={styles.itemName}>{item_name}</div>
       <div className={styles.modifyBtnDiv}>{unit_price}</div>
-      <div className={styles.quantity}>{quantity}</div>
+      <div className={styles.quantity}>{parseInt(quantity)}</div>
       <div className={styles.deleteBtnDiv}>
         <Button onClick={handleClick} variant='outlined'>
           Add

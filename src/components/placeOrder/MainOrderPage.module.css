@@ -88,3 +88,11 @@
 .innerButton {
   margin: 10px;
 }
+
+.price {
+  text-align: right;
+  font-size: 35px;
+  font-family: sspb;
+
+  padding: 10px 30px;
+}

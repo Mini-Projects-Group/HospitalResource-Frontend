@@ -21,6 +21,7 @@ const MainOrderPage = (props) => {
 
   const [submit, setSubmit] = useState(false);
 
+  const [amount, setAmount] = useState(0);
   const h_id = useSelector(
     (state) => state?.hReducer.hospitalData?.hospital_id
   );
@@ -38,6 +39,19 @@ const MainOrderPage = (props) => {
 
         if (res.status !== BAD_STATUS) {
           setSellerItems(res.data);
+
+          let temp = res.data;
+          let temp2 = [];
+
+          temp.forEach((element) => {
+            temp2.push({
+              item_id: element.item_id,
+              item_name: element.item_name,
+              quantity: 0,
+            });
+          });
+
+          setCart(temp2);
         }
       } catch (err) {
         console.log(err);
@@ -47,6 +61,15 @@ const MainOrderPage = (props) => {
     };
     f();
   }, [seller_id]);
+
+  useEffect(() => {
+    let amt = 0;
+    cart.map((item, idx) => {
+      amt += item.quantity * parseInt(sellerItems[idx].unit_price);
+    });
+
+    setAmount(parseInt(amt));
+  }, [cart]);
 
   const [modalIsOpen, setIsOpen] = useState(false);
   const [okmodalIsOpen, setIsOpenOk] = useState(false);
@@ -82,6 +105,9 @@ const MainOrderPage = (props) => {
 
   if (loading) return <div className={styles.root}>Loading...</div>;
 
+  console.log(cart);
+  console.log(amount);
+
   return (
     <div className={styles.root}>
       <Modal
@@ -92,6 +118,7 @@ const MainOrderPage = (props) => {
         appElement={document.getElementById("root")}
       >
         <div>Please confirm</div>
+        <div>Your total bill is ₹ {amount}</div>
         <div>Orders once placed cannot be cancelled.</div>
         <div>
           <Button
@@ -154,6 +181,7 @@ const MainOrderPage = (props) => {
             />
           ))}
         </div>
+        <div className={styles.price}> ₹ {amount}</div>
       </div>
       <div className={styles.btnDiv}>
         <Button
@@ -161,7 +189,7 @@ const MainOrderPage = (props) => {
           onClick={openModal}
           // color='default'
           variant='contained'
-          disabled={cart.length ? false : true}
+          disabled={amount ? false : true}
         >
           Place Order
         </Button>
