@@ -17,7 +17,7 @@ const Orders = () => {
       "get",
       true
     );
-    console.log(result.data);
+    // console.log(result.data);
     setOrders(result.data);
   }
 
@@ -33,7 +33,7 @@ const Orders = () => {
       true
     );
     f();
-    console.log(result);
+    // console.log(result);
   };
   const handleDeclineOrder = async (order_id) => {
     const result = await async_func_data(
@@ -43,8 +43,10 @@ const Orders = () => {
       true
     );
     f();
-    console.log(result);
+    //console.log(result);
   };
+
+  console.log(orders);
 
   if (orders) {
     return (

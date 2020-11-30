@@ -25,7 +25,9 @@ const OrderCard = ({
   };
 
   let list = JSON.parse(items);
-  console.log(list);
+  // console.log(list);
+
+  console.log(hospital_name);
 
   return (
     <div
@@ -45,8 +47,8 @@ const OrderCard = ({
         </div>
         <div className={styles.det}>
           <Button
-            variant="contained"
-            color="default"
+            variant='contained'
+            color='default'
             onClick={() => {
               openModal();
             }}
@@ -76,12 +78,12 @@ const OrderCard = ({
       </div>
       <div className={styles.footer}>
         <div className={styles.decline}>
-          <Button variant="contained" color="secondary" onClick={buttonClick1}>
+          <Button variant='contained' color='secondary' onClick={buttonClick1}>
             {buttonContent1}
           </Button>
         </div>
         <div className={styles.accept}>
-          <Button variant="contained" color="primary" onClick={buttonClick2}>
+          <Button variant='contained' color='primary' onClick={buttonClick2}>
             {buttonContent2}
           </Button>
         </div>

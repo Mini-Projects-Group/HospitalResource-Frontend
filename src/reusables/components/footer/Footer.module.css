@@ -19,4 +19,8 @@
 
   font-family: sspb;
   color: #5c5c5c;
+
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }

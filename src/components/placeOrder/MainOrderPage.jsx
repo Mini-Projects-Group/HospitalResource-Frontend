@@ -9,6 +9,7 @@ import { Button, TextField } from "@material-ui/core";
 import Modal from "react-modal";
 import { Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Loader from "../../reusables/components/loader/Loader";
 
 const MainOrderPage = (props) => {
   const seller_id = props.match.params.sellerid;
@@ -103,7 +104,12 @@ const MainOrderPage = (props) => {
 
   if (submit) return <Redirect to='/auth/hospital/orders' />;
 
-  if (loading) return <div className={styles.root}>Loading...</div>;
+  if (loading)
+    return (
+      <div className={styles.root}>
+        <Loader />
+      </div>
+    );
 
   console.log(cart);
   console.log(amount);

@@ -13,14 +13,14 @@ const PieChart = (props) => {
         innerRadius={0.5}
         padAngle={0.7}
         cornerRadius={3}
-        colors={{ scheme: "accent" }}
+        colors={{ scheme: "set1" }}
         borderWidth={1}
         borderColor={{ from: "color", modifiers: [["darker", 0.2]] }}
         radialLabelsSkipAngle={10}
-        radialLabelsTextColor="#333333"
+        radialLabelsTextColor='#333333'
         radialLabelsLinkColor={{ from: "color" }}
         sliceLabelsSkipAngle={10}
-        sliceLabelsTextColor="#333333"
+        sliceLabelsTextColor='#ffffff'
         legends={[
           {
             anchor: "bottom",
@@ -28,11 +28,11 @@ const PieChart = (props) => {
             justify: false,
             translateX: 0,
             translateY: 56,
-            itemsSpacing: 0,
+            itemsSpacing: 20,
             itemWidth: 100,
             itemHeight: 18,
             itemTextColor: "#999",
-            itemDirection: "left-to-right",
+            itemDirection: "top-to-bottom",
             itemOpacity: 1,
             symbolSize: 18,
             symbolShape: "circle",

@@ -24,9 +24,7 @@ const Navbar = () => {
     >
       <header className={styles.nav}>
         <div className={styles.container}>
-          <div className={styles.logo}>
-            <img src='/images/logo.png' className={styles.logoImg} />
-          </div>
+          <div className={styles.logo}>HRM</div>
           {!token && (
             <ul className={`${open ? styles.open : ""} ${styles.navUl}`}>
               <li className={styles.navLi}>
