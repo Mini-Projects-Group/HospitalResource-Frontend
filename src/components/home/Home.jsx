@@ -12,22 +12,21 @@ const Home = () => {
             all your needs.
           </div>
           <div className={styles.description}>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged.
+            Hospital Resource Management ( HRM ), is a platform for managing
+            hospital resources as well as ordering the resources from different
+            distributors, as per their requirements. HRM provides a direct link
+            between hospital and distributors, making it a lot easier for
+            hospitals to manage their resources properly.
           </div>
         </div>
         <div className={styles.right}>
-          <img src='/images/homepage/3.svg' className={styles.img1} />
+          <img src="/images/homepage/3.svg" className={styles.img1} />
         </div>
       </div>
 
       <div className={styles.second}>
         <div className={styles.right}>
-          <img src='/images/homepage/1.svg' className={styles.img2} />
+          <img src="/images/homepage/1.svg" className={styles.img2} />
         </div>
         <div className={styles.left}>
           <div className={styles.tagline}>
@@ -38,12 +37,10 @@ const Home = () => {
             </p>
           </div>
           <div className={styles.description}>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged.
+            Hospital can view different distributors and can view different
+            items available with them as well as compare the cost of items among
+            different distributors so as to get perfect deal. HRM also provides
+            a platform for distributors to expand their business online.
           </div>
         </div>
       </div>
@@ -56,16 +53,13 @@ const Home = () => {
             simple solution, HRM.
           </div>
           <div className={styles.description}>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged.
+            HRM provides flexibility in terms of placing an order. Hospital as
+            well as distributors can get notified about the order and it's
+            status. It provides a direct link between hospital and distributors.
           </div>
         </div>
         <div className={styles.right}>
-          <img src='/images/homepage/2.svg' className={styles.img3} />
+          <img src="/images/homepage/2.svg" className={styles.img3} />
         </div>
       </div>
     </div>
