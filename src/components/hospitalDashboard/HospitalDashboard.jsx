@@ -85,9 +85,11 @@ const HospitalDashboard = () => {
 
   return (
     <div className={styles.root}>
+      <div className={styles.cardTitle}>Stock Available</div>
       <div className={styles.pieCard}>
         <PieChart data={temp} />
       </div>
+      <div className={styles.cardTitle}>Stock Used</div>
       <div className={styles.pieCard}>
         <BarChart data={temp2} />
       </div>
