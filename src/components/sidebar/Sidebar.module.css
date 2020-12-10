@@ -19,6 +19,12 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  z-index: 999;
 }
 
 .main {
