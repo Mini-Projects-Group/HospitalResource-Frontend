@@ -1,0 +1,18 @@
+@font-face {
+  font-family: ssp;
+  src: url("/fonts/SourceSansPro-Regular.otf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: sspb;
+  src: url("/fonts/SourceSansPro-Bold.otf");
+  font-display: swap;
+}
+
+.root {
+  height: 100%;
+  width: 100%;
+
+  font-family: ssp;
+}

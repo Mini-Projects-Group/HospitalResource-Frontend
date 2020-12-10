@@ -1454,10 +1454,58 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
+"@nivo/annotations@0.66.0":
+  version "0.66.0"
+  resolved "https://registry.yarnpkg.com/@nivo/annotations/-/annotations-0.66.0.tgz#65e0d0f4aec26f970879ee4e6b879dad0539587d"
+  integrity sha512-fmpFYOuqER4HBeTCTJDoJTTDOX+sANPN1SHJKE4i5K4A6JCuDs35BBTQWO1v0cG6PIxcgXSrqWgMcTNxohMiyA==
+  dependencies:
+    "@nivo/colors" "0.66.0"
+    lodash "^4.17.11"
+    react-spring "9.0.0-rc.3"
+
+"@nivo/axes@0.66.0":
+  version "0.66.0"
+  resolved "https://registry.yarnpkg.com/@nivo/axes/-/axes-0.66.0.tgz#c1382be03d1ba76cbad550762b5c1a08028d11b6"
+  integrity sha512-kgEPHOkGVJjf/N1m4ZP+s5K1DHnpE3N46eC1tHjQZQV0AyH+VfjKR2SZFzH/VPIrPOrRbwavXrUBt1hqMelJGQ==
+  dependencies:
+    "@nivo/scales" "0.66.0"
+    d3-format "^1.4.4"
+    d3-time "^1.0.11"
+    d3-time-format "^2.1.3"
+    react-spring "9.0.0-rc.3"
+
+"@nivo/bar@^0.66.0":
+  version "0.66.0"
+  resolved "https://registry.yarnpkg.com/@nivo/bar/-/bar-0.66.0.tgz#28511e1bbc4847dc77604e2cccb26d458cd741d8"
+  integrity sha512-9ikafWt/7IXP7+Z2UmdrzLytKVXBwbXmTlJZ6lqqMNa2687bxTx2fu4g41DV5WNoyUdrlPwxnsL+W0CotVPSHQ==
+  dependencies:
+    "@nivo/annotations" "0.66.0"
+    "@nivo/axes" "0.66.0"
+    "@nivo/colors" "0.66.0"
+    "@nivo/legends" "0.66.0"
+    "@nivo/scales" "0.66.0"
+    "@nivo/tooltip" "0.66.0"
+    d3-scale "^3.0.0"
+    d3-shape "^1.2.2"
+    lodash "^4.17.11"
+    react-motion "^0.5.2"
+    recompose "^0.30.0"
+
 "@nivo/colors@0.65.1":
   version "0.65.1"
   resolved "https://registry.yarnpkg.com/@nivo/colors/-/colors-0.65.1.tgz#d55ec085c991358d88e3bce7c94be468e58b3817"
   integrity sha512-1dU6fuHYUDbU2oqOA8jzlYI9qXOajgbwH2cs8s9XktHvC3rfxp6ZedqAI+FxqKuk9QFaAxcyFftYUVlpdsFFkQ==
+  dependencies:
+    d3-color "^2.0.0"
+    d3-scale "^3.0.0"
+    d3-scale-chromatic "^2.0.0"
+    lodash "^4.17.11"
+    react-motion "^0.5.2"
+
+"@nivo/colors@0.66.0":
+  version "0.66.0"
+  resolved "https://registry.yarnpkg.com/@nivo/colors/-/colors-0.66.0.tgz#cda58d8c76ff741e94536ac49c6936d1c8c6a106"
+  integrity sha512-fPCgaHHQjqXT/MAnqiT+KKiWhiRtw2hm3zjm8ACdN4aP7kW/PknnzdT/ELMGrhzsB4kPBnIjZVLOemYZQftdCw==
   dependencies:
     d3-color "^2.0.0"
     d3-scale "^3.0.0"
@@ -1491,6 +1539,14 @@
     lodash "^4.17.11"
     recompose "^0.30.0"
 
+"@nivo/legends@0.66.0":
+  version "0.66.0"
+  resolved "https://registry.yarnpkg.com/@nivo/legends/-/legends-0.66.0.tgz#4c6f22beca0a430939c39d1758e7506c3a5e345e"
+  integrity sha512-LS0Pp3QqYtx24vmbqMjSLmR2SAJoAlB9mrNdU0Gu9g31rtZG2DVI7P2mAepwY7E+iGd/CNWqBEKEsqrPFjPKcg==
+  dependencies:
+    lodash "^4.17.11"
+    recompose "^0.30.0"
+
 "@nivo/pie@^0.65.1":
   version "0.65.1"
   resolved "https://registry.yarnpkg.com/@nivo/pie/-/pie-0.65.1.tgz#642b928ff7631c2d5e3a5fb361ad4834615ad06e"
@@ -1502,10 +1558,26 @@
     d3-shape "^1.3.5"
     lodash "^4.17.11"
 
+"@nivo/scales@0.66.0":
+  version "0.66.0"
+  resolved "https://registry.yarnpkg.com/@nivo/scales/-/scales-0.66.0.tgz#0005a1b5eabeaa4bdf1478f72a7596373fcfad69"
+  integrity sha512-/8wRcqQVEoy3H2oOLQ2vyFW3CsksVgCDuTEe8tj4m0pODHNpKfvPLPkw1eMQrEcH8G+mjEh9yi9NsIh98zxPrw==
+  dependencies:
+    d3-scale "^3.0.0"
+    d3-time-format "^2.1.3"
+    lodash "^4.17.11"
+
 "@nivo/tooltip@0.65.1":
   version "0.65.1"
   resolved "https://registry.yarnpkg.com/@nivo/tooltip/-/tooltip-0.65.1.tgz#7b3215e54dbfbaa2b4066b764f74c85137a8a576"
   integrity sha512-m08E1ZSoSUS7O8Bi/6ewXM87w+t09ESNobFL6YTRro1vhnBZ2g8MlglIkXBkEP/mYqfyUMzw6DzT/tOaA3Cnlg==
+  dependencies:
+    react-spring "9.0.0-rc.3"
+
+"@nivo/tooltip@0.66.0":
+  version "0.66.0"
+  resolved "https://registry.yarnpkg.com/@nivo/tooltip/-/tooltip-0.66.0.tgz#d1e0485361fb31e884e6764861c381685f90e494"
+  integrity sha512-j361wOTHswR8TnFVcsvbDJ/FJcIjB33nQPApz5nktzfphvEfZQ4ZfQdKhjPNl3eeh4NATkC0m/kr0BSaFT5ZEg==
   dependencies:
     react-spring "9.0.0-rc.3"
 
@@ -3913,7 +3985,7 @@ d3-scale@^3.0.0:
     d3-time "1 - 2"
     d3-time-format "2 - 3"
 
-d3-shape@^1.3.5:
+d3-shape@^1.2.2, d3-shape@^1.3.5:
   version "1.3.7"
   resolved "https://registry.yarnpkg.com/d3-shape/-/d3-shape-1.3.7.tgz#df63801be07bc986bc54f63789b4fe502992b5d7"
   integrity sha512-EUkvKjqPFUAZyOlhY5gzCxCeI0Aep04LwIRpsZ/mLFelJiUfnK56jo5JMDSE7yyP2kLSb6LtF+S5chMk7uqPqw==
@@ -3934,7 +4006,7 @@ d3-time-format@^2.1.3:
   dependencies:
     d3-time "1"
 
-d3-time@1:
+d3-time@1, d3-time@^1.0.11:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/d3-time/-/d3-time-1.1.0.tgz#b1e19d307dae9c900b7e5b25ffc5dcc249a8a0f1"
   integrity sha512-Xh0isrZ5rPYYdqhAVk8VLnMEidhz5aP7htAADH6MfzgmmicPkTo8LhkLxci61/lCB7n7UmE3bN0leRt+qvkLxA==

@@ -5,6 +5,8 @@ import { ResponsivePie } from "@nivo/pie";
 const PieChart = (props) => {
   const { data } = props;
 
+  //console.log(data);
+
   return (
     <div className={styles.root}>
       <ResponsivePie
@@ -44,6 +46,10 @@ const PieChart = (props) => {
                 },
               },
             ],
+            legendFormat: (d) => {
+              console.log(d);
+              return `${d}%`;
+            },
           },
         ]}
       />

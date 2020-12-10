@@ -59,6 +59,9 @@ const SellerDashboard = () => {
 
       closeModal();
       await f();
+      setItemName("");
+      setTotalQuantity(null);
+      setUnitPrice(null);
     } catch (error) {
       console.log(error);
     }
