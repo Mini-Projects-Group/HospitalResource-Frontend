@@ -1,5 +1,8 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import jwt_decode from "jwt-decode";
+
 import Auth, { Auth_Hospital, Auth_Seller } from "./components/auth/Auth";
 import Home from "./components/home/Home";
 import Navbar from "./components/navbar/Navbar";
@@ -8,11 +11,10 @@ import Signin from "./components/signin/Signin";
 import PrivateRoute from "./reusables/routes/PrivateRoute";
 import PrivateSellerRoute from "./reusables/routes/PrivateSellerRoute";
 import PrivateHospitalRoute from "./reusables/routes/PrivateHospitalRoute";
-import jwt_decode from "jwt-decode";
-import { useDispatch } from "react-redux";
 import { SELLER_LOADED } from "./redux/seller/types";
 import { HOSPITAL_LOADED } from "./redux/hospital/types";
 import Footer from "./reusables/components/footer/Footer";
+
 function App() {
   const token = localStorage.getItem("token");
   const type = localStorage.getItem("type");
